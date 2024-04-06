@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
+dotenv.config()
 import cookieParser from 'cookie-parser'
 import './mongoose'
 import {router} from './routes'
