@@ -2,25 +2,22 @@ from typing import Union
 
 from fastapi import FastAPI
 from pydantic import BaseModel
-from utils import generate_description
+from utils import summarize_pdf
 
 app = FastAPI()
 
-class Order(BaseModel):
-    product: str
-    units: int
-
-class Product(BaseModel):
-    name: str
-    notes: str
-
 class Article(BaseModel):
-    title: str
-    author: str
-    category: str # create predefined genre list
-    date: str
-    body_text: str
+    #title: str
+    #author: str
+    #category: str # create predefined genre list
+    #date: str
+    #body_text: str
     content: str
+
+@app.post("/article_summary")
+async def generate_article_summary(article: Article):
+    summary = summarize_pdf("url: {url}")
+    return {"article_summary": summary}
 
 @app.get("/ok")
 async def ok_endpoint():
@@ -29,6 +26,16 @@ async def ok_endpoint():
 @app.get("/hello")
 async def hello_endpoint(name: str = 'World'):
     return {"message": f"Hello, {name}!"}
+
+"""
+
+class Order(BaseModel):
+    product: str
+    units: int
+
+class Product(BaseModel):
+    name: str
+    notes: str
 
 @app.post("/orders")
 async def place_order(product: str, units: int):
@@ -43,7 +50,6 @@ async def generate_product_description(product: Product):
     description = generate_description(f"Product name: {product.name}, Notes: {product.notes}")
     return {"product_description": description}
 
-"""
 class Item(BaseModel):
     name: str
     price: float

@@ -3,3 +3,6 @@ uvicorn
 openai
 utils
 requests
+PyPaperBot
+anthropic
+bs4

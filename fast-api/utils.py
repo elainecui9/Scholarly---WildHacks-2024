@@ -1,26 +1,34 @@
-import openai
 import os
+import anthropic
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
+api_key = os.getenv('OPUS_API_KEY')
+anthropic_client = anthropic.Client(api_key)
 
-# Now you can access your environment variables using os.getenv
-debug = os.getenv('DEBUG')
-secret_key = os.getenv('SECRET_KEY')
+def summarize_pdf(pdf_url):
 
-openai.api_key = secret_key
+    api_endpoint = "https://api.openai.com/v1/engines/claude/completions"
 
-def generate_description(input):
-    
-    messages = [
-        {"role": "user",
-         "content": """As an expert, generate bullet points from the provided text' \n"""},
-    ]
+    params = {
+        "prompt" : f"summarize the contents of the pdf at {pdf_url}",
+        "max_tokens": 1000,
+        "temperature": 0.7,
+        "stop": ["###"]
+    }
 
-    messages.append({"role": "user", "content": f"{input}"})
-    completion = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=messages
-    )
-    reply = completion.choices[0].message.content
-    return reply
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    response = requests.post(api_endpoint, json=params,headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        summary = data["choices"][0]["text"].strip()
+        return summary
+    else:
+        return f"Failed to generate summary. Status code: {response.status_code}"
+
