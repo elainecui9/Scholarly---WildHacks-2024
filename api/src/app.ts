@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import cookieParser from 'cookie-parser'
 import './mongoose'
-import {router} from './routes'
+import {router} from './router'
 
 const app = express()
 const port = process.env.PORT
