@@ -1,18 +1,20 @@
 "use client"
 import Header from "../frontpage/header";
+import { FaFolder } from "react-icons/fa";
+
 
 export default function Dashboard() {
 
   return (
     <section className= "bg-white h-full">
         <Header></Header>
-        <h1>dashboard</h1>
+        <h1 className="p-8 text-2xl font-bold">Welcome to Your Dashboard</h1>
 
         <ul role="list" className="divide-y divide-gray-100 p-8">
         {people.map((person) => (
             <li key={person.email} className="relative flex justify-between gap-x-6 py-5">
             <div className="flex min-w-0 gap-x-4">
-                <img className="h-12 w-12 flex-none rounded-full bg-gray-50" src={person.imageUrl} alt="" />
+                <FaFolder style={{ color: 'black'}} />
                 <div className="min-w-0 flex-auto">
                 <p className="text-sm font-semibold leading-6 text-gray-900">
                     <a href={person.href}>
@@ -57,7 +59,7 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'
 const people = [
   {
     name: 'Leslie Alexander',
-    email: 'leslie.alexander@example.com',
+    datecreated: '2023-01-23T13:23Z',
     role: 'Co-Founder / CEO',
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -67,10 +69,6 @@ const people = [
   },
   {
     name: 'Michael Foster',
-    email: 'michael.foster@example.com',
-    role: 'Co-Founder / CTO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     href: '#',
     lastSeen: '3h ago',
     lastSeenDateTime: '2023-01-23T13:23Z',

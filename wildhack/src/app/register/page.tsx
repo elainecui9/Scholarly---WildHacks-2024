@@ -96,6 +96,9 @@ export default function Register() {
                 >
                   Register
                 </Link>
+                <Link href="/signin" className="text-xs">
+                  Already have an account?
+                </Link>
               </div>
             </form>
           </div>
