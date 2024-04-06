@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 require("./mongoose");
 const routes_1 = require("./routes");
