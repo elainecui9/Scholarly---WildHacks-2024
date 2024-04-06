@@ -10,7 +10,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 require("./mongoose");
-const routes_1 = require("./routes");
+const router_1 = require("./router");
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 // Enable the use of request body parsing middleware
@@ -28,7 +28,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({
     extended: true
 }));
-app.use('/', routes_1.router);
+app.use('/', router_1.router);
 app.listen(port, () => {
     console.log(`server is up on port ${port}`);
 });

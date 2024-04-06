@@ -30,7 +30,6 @@ const userSchema = new mongoose_1.Schema({
     lastName: { type: String, trim: true, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    role: { type: String, required: true },
     folders: { type: Array, default: [] },
     articles: { type: Array, default: [] }
 });
