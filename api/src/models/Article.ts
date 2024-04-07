@@ -9,14 +9,14 @@ export interface ArticlePreview {
 export interface Article extends ArticlePreview {
     content: string,
     url: string,
-    authors: string[],
+    authors: string,
 }
 
 const articleSchema = new Schema({
     title: {type: String, required: true},
     content: {type: String, required: true},
     url: {type: String, required: true},
-    authors: {type: Array, required: true},
+    authors: {type: String, required: true},
     date: {type: Date, required: true},
 })
 

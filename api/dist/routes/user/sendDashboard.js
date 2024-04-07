@@ -13,6 +13,7 @@ exports.sendDashboard = void 0;
 const User_1 = require("../../models/User");
 const Article_1 = require("../../models/Article");
 const Folder_1 = require("../../models/Folder");
+const Class_1 = require("../../models/Class");
 const sendDashboard = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const payload = req.body.payload;
@@ -27,11 +28,24 @@ const sendDashboard = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 $in: user.folders
             }
         });
+        const classesData = yield Class_1.Class.find({
+            "_id": {
+                $in: user.classes
+            }
+        });
         const articles = articlesData.map((article) => {
             return {
                 _id: article._id,
                 title: article.title,
                 date: article.date
+            };
+        });
+        const classes = classesData.map((iter) => {
+            return {
+                _id: iter._id,
+                name: iter.name,
+                date: iter.date,
+                owner: iter.owner
             };
         });
         const folders = yield Promise.all(foldersData.map((folder) => __awaiter(void 0, void 0, void 0, function* () {
@@ -61,7 +75,8 @@ const sendDashboard = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             lastName: user.lastName,
             email: user.email,
             folders: folders,
-            articles: articles
+            articles: articles,
+            classes: classes
         };
         res.status(200).json(data);
     }
