@@ -53,20 +53,15 @@ export default function JournalPage() {
   }
 
   const handleClick = async () => {
-    const res = await fetch('http://127.0.0.1:8000/article_summary', {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        url: article.bibjson.link[0].url,
-        complexity: selectedcomplexity.title,
-        mode: selectedMode.title
-      })
-    })
-    const data = await res.json()
-    console.log(data)
-    router.push("/journalpage");
+    const queryParameters = {
+        url: encodeURIComponent(article?.bibjson?.link[0]?.url),
+        complexity: encodeURIComponent(selectedcomplexity.title),
+        mode: encodeURIComponent(selectedMode.title),
+      };
+    
+      const queryString = new URLSearchParams(queryParameters).toString();
+    
+      router.push(`/journalpage?${queryString}`);
   }
   return (
     
@@ -201,9 +196,9 @@ export default function JournalPage() {
         </>
       )}
     </Listbox>
-    <Link href={`/journalpage?id=${article.bibjson.link[0].url}`} className='mt-16 text-bold bg-red-900 text-white px-8 py-2 rounded-lg'>
+    <button onClick = {handleClick} className='mt-16 text-bold bg-red-900 text-white px-8 py-2 rounded-lg'>
       Generate Text
-    </Link>
+    </button>
     </div>
 
     
