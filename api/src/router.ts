@@ -20,6 +20,8 @@ import { editClass } from './routes/classes/editClass'
 import { requiresAuth } from './routes/auth/requiresAuth'
 import { validateToken } from './routes/auth/validateToken'
 import { sendDashboard } from './routes/user/sendDashboard'
+import { sendClasses } from './routes/user/sendClasses'
+import { sendClass } from './routes/classes/sendClass'
 
 
 //* ROUTES
@@ -27,6 +29,8 @@ import { sendDashboard } from './routes/user/sendDashboard'
 //* GET
 router.get('/validateToken', requiresAuth, validateToken)
 router.get('/user/dashboard', requiresAuth, sendDashboard)
+router.get('/user/classes', requiresAuth, sendClasses)
+router.get("/class/send", requiresAuth, sendClass)
 
 //* POST
 

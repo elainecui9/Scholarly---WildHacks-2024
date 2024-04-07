@@ -24,7 +24,7 @@ export default function Drives({ folder, articles, setarticles, setfolders, key,
                 </p>
             </div>
             <div className="flex-grow text-center">
-                <h1 className="text-sm text-gray-500">{folder.datecreated}</h1>
+                <h1 className="text-sm text-gray-500">{folder.date}</h1>
             </div>
             <div className="flex items-center gap-x-4">
                 <Editbuttonfolder></Editbuttonfolder>

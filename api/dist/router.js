@@ -26,10 +26,14 @@ const editClass_1 = require("./routes/classes/editClass");
 const requiresAuth_1 = require("./routes/auth/requiresAuth");
 const validateToken_1 = require("./routes/auth/validateToken");
 const sendDashboard_1 = require("./routes/user/sendDashboard");
+const sendClasses_1 = require("./routes/user/sendClasses");
+const sendClass_1 = require("./routes/classes/sendClass");
 //* ROUTES
 //* GET
 router.get('/validateToken', requiresAuth_1.requiresAuth, validateToken_1.validateToken);
 router.get('/user/dashboard', requiresAuth_1.requiresAuth, sendDashboard_1.sendDashboard);
+router.get('/user/classes', requiresAuth_1.requiresAuth, sendClasses_1.sendClasses);
+router.get("/class/send", requiresAuth_1.requiresAuth, sendClass_1.sendClass);
 //* POST
 //auth
 router.post('/logout', logout_1.logout);
