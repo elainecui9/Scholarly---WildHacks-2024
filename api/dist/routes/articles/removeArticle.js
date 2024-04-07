@@ -9,18 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editClass = void 0;
-const Class_1 = require("../../models/Class");
-const editClass = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.removeArticle = void 0;
+const Article_1 = require("../../models/Article");
+const removeArticle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        if (!req.body.mutable && req.body.owner !== req.body.payload._id) {
-            res.status(400).send("You cannot edit this folder. Please try again");
-        }
-        yield Class_1.Class.findByIdAndUpdate(req.body.article, { $set: { name: req.body.name } });
-        res.status(200).send("Successfully updated class name");
+        yield Article_1.Article.findByIdAndDelete(req.body._id);
+        res.status(200).send("Successfully deleted");
     }
     catch (error) {
         res.status(400).send(error);
     }
 });
-exports.editClass = editClass;
+exports.removeArticle = removeArticle;

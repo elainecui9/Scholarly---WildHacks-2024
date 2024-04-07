@@ -13,7 +13,7 @@ exports.editArticle = void 0;
 const Article_1 = require("../../models/Article");
 const editArticle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield Article_1.Article.findByIdAndUpdate(req.body._id, { $set: { name: req.body.name } });
+        yield Article_1.Article.findByIdAndUpdate(req.body.article, { $set: { name: req.body.name } });
         res.status(200).send("Successfully updated name");
     }
     catch (error) {

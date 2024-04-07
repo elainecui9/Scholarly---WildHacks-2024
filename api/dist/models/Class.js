@@ -30,6 +30,7 @@ const classSchema = new mongoose_1.Schema({
     mutable: { type: Boolean, required: true },
     code: { type: String, required: true },
     name: { type: String, required: true },
+    date: { type: Date, required: true },
     members: { type: Array, required: true },
     articles: { type: Array, required: true },
     folders: { type: Array, required: true },
