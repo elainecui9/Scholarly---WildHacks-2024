@@ -23,7 +23,7 @@ export default function Drives({ folder, articles, setarticles, setfolders, key,
     return (
         <section className="flex justify-between items-center gap-x-6 py-5">
             <div className="flex gap-x-4 items-center hover:cursor-pointer" onClick={handleClick}>
-                <FaFolder style={{ color: 'black', width: '32px', height: '32px' }} />
+                <FaFolder style={{ color: folder.color, width: '32px', height: '32px' }} />
                 <p className="text-md font-semibold leading-6 text-gray-900">
                     {folder.name}
                 </p>
