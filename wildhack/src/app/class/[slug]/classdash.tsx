@@ -22,6 +22,7 @@ export default function Dashboard({students, setrerender, infolder, setinfolder,
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
+
   const handleAddFolder = async(folder) => {
    await fetch('http://localhost:4000/folder/create', {
       method: "POST",
