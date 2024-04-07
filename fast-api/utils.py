@@ -9,17 +9,14 @@ import io
 
 load_dotenv()
 
-# client = anthropic.Anthropic(os.getenv("ANTHROPIC_API_KEY"))
 client = anthropic.Anthropic(
     api_key = os.getenv("ANTHROPIC_API_KEY")
 )
 
-
-
-def summarize_pdf(pdf_text):
+def summarize_pdf(pdf_text, mode, complexity):
     
-    Prompt = "summarize the following article" + pdf_text
-    #instructions = f"level of  diffculty..."
+    Prompt = "create " + mode + "of the following article" + pdf_text + "at the reading level of a " + complexity
+    
     message = client.messages.create(
         model="claude-3-opus-20240229",
         max_tokens=1024,
