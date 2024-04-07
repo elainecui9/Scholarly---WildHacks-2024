@@ -22,6 +22,7 @@ import { validateToken } from './routes/auth/validateToken'
 import { sendDashboard } from './routes/user/sendDashboard'
 import { sendClasses } from './routes/user/sendClasses'
 import { sendClass } from './routes/classes/sendClass'
+import { findArticle } from './routes/articles/findArticle'
 
 
 //* ROUTES
@@ -30,7 +31,8 @@ import { sendClass } from './routes/classes/sendClass'
 router.get('/validateToken', requiresAuth, validateToken)
 router.get('/user/dashboard', requiresAuth, sendDashboard)
 router.get('/user/classes', requiresAuth, sendClasses)
-router.get("/class/send", requiresAuth, sendClass)
+router.get("/class/:class", requiresAuth, sendClass)
+router.get('/article/:article', findArticle)
 
 //* POST
 
