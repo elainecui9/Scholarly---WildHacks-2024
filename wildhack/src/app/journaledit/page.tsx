@@ -9,6 +9,7 @@ import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useRouter } from 'next/navigation'
 import Back from "../components/back";
 import Link from "next/link";
+import Loading from "../components/loadingpage";
 
 
 
@@ -49,7 +50,7 @@ export default function JournalPage() {
   }, [])
   
   if (!article) {
-    return <p>Loading...</p>; // or any other loading state
+    return <Loading></Loading>; // or any other loading state
   }
 
   const handleClick = async () => {
