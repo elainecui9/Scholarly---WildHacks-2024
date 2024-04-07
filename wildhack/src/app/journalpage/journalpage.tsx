@@ -45,7 +45,7 @@ export default function Journal() {
       method: "POST",
       credentials: 'include',
       headers: {
-      'Content-Tyep' : 'application/json'
+      'Content-Type' : 'application/json'
       },
       body :{
         title: name,
