@@ -2,6 +2,7 @@
 import { MdArticle } from "react-icons/md";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Editbuttonarticle from "./editbuttonarticle";
+import Link from "next/link";
 
 export default function Articles({ article }) {
     const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
@@ -30,3 +31,4 @@ export default function Articles({ article }) {
         </section>
     );
 }
+

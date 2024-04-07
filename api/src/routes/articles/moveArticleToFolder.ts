@@ -5,7 +5,7 @@ import { Folder } from '../../models/Folder'
 
 export const moveArticleToFolder = async (req: Request, res: Response) => {
     try {
-        await Folder.findByIdAndUpdate(req.body.class, { $push: { articles: req.body.article } })
+        await Folder.findByIdAndUpdate(req.body.folder, { $push: { articles: req.body.article } })
         res.status(200).send("Successfully moved article")
     } catch (error) {
         res.status(400).send(error)

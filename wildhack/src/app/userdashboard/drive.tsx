@@ -32,7 +32,9 @@ export default function Drives({ folder, articles, setarticles, setfolders, key,
                 <h1 className="text-sm text-gray-500">{formattedDate}</h1>
             </div>
             <div className="flex items-center gap-x-4">
-                <Editbuttonfolder></Editbuttonfolder>
+                <Editbuttonfolder
+                    id={folder._id}
+                ></Editbuttonfolder>
                 <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </div>
         </section>
