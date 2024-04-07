@@ -16,9 +16,9 @@ export default function Articles({ article }) {
             <div className="flex gap-x-4 items-center hover:cursor-pointer">
                 <MdArticle style={{ color: 'black', width: '32px', height: '32px' }} />
                 <p className="text-md font-semibold leading-6 text-gray-900">
-                    <a href={article.href}>
+                    <Link href={`/articles/${article._id}`}>
                         {article.title}
-                    </a>
+                    </Link>
                 </p>
             </div>
             <div className="flex-grow text-center">
