@@ -2,33 +2,42 @@ import os
 import anthropic
 import requests
 from dotenv import load_dotenv
+from IPython.display import Markdown, display
+from anthropic import HUMAN_PROMPT, AI_PROMPT
+import PyPDF2
+import io
 
 load_dotenv()
-api_key = os.getenv('OPUS_API_KEY')
-anthropic_client = anthropic.Client(api_key)
 
-def summarize_pdf(pdf_url):
+# client = anthropic.Anthropic(os.getenv("ANTHROPIC_API_KEY"))
+client = anthropic.Anthropic(
+    api_key = os.getenv("ANTHROPIC_API_KEY")
+)
 
-    api_endpoint = "https://api.openai.com/v1/engines/claude/completions"
 
-    params = {
-        "prompt" : f"summarize the contents of the pdf at {pdf_url}",
-        "max_tokens": 1000,
-        "temperature": 0.7,
-        "stop": ["###"]
-    }
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
-    }
+def summarize_pdf(pdf_text):
+    
+    Prompt = "summarize the following article" + pdf_text
+    #instructions = f"level of  diffculty..."
+    message = client.messages.create(
+        model="claude-3-opus-20240229",
+        max_tokens=1024,
+        #system=instructions,
+        messages=[
+            {"role": "user", "content": Prompt} 
+        ]
+    )
+    
+    return Markdown(message.content[0].text)
 
-    response = requests.post(api_endpoint, json=params,headers=headers)
+def scrape_pdf(url):
 
-    if response.status_code == 200:
-        data = response.json()
-        summary = data["choices"][0]["text"].strip()
-        return summary
-    else:
-        return f"Failed to generate summary. Status code: {response.status_code}"
+    response = requests.get(url)
+    f = io.BytesIO(response.content)
+    reader = PyPDF2.PdfReader(f)
+    pages = reader.pages
+    # get all pages data
+    text = "".join([page.extract_text() for page in pages])
 
+    return text

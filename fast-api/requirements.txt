@@ -3,6 +3,10 @@ uvicorn
 openai
 utils
 requests
-PyPaperBot
+os
+dotenv
 anthropic
 bs4
+Ipython
+PyPDF2
+io

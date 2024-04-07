@@ -2,21 +2,20 @@ from typing import Union
 
 from fastapi import FastAPI
 from pydantic import BaseModel
-from utils import summarize_pdf
+from utils import summarize_pdf, scrape_pdf
+from pdf_converter import scrape_pdf_url
 
 app = FastAPI()
 
 class Article(BaseModel):
-    #title: str
-    #author: str
-    #category: str # create predefined genre list
-    #date: str
-    #body_text: str
-    content: str
+    url: str
+    difficulty: str
+    mode: str
 
 @app.post("/article_summary")
 async def generate_article_summary(article: Article):
-    summary = summarize_pdf("url: {url}")
+    pdf_url = scrape_pdf_url(article.url)
+    summary = summarize_pdf(scrape_pdf(pdf_url))
     return {"article_summary": summary}
 
 @app.get("/ok")
