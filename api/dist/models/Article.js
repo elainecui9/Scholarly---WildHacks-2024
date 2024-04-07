@@ -31,6 +31,5 @@ const articleSchema = new mongoose_1.Schema({
     url: { type: String, required: true },
     authors: { type: Array, required: true },
     date: { type: Date, required: true },
-    category: { type: String, required: true },
 });
 exports.Article = mongoose_1.default.model('Article', articleSchema);

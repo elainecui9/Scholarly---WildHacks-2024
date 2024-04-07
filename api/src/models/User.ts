@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
-import { Folder } from './Folder'
-import { Article } from './Article'
+import { Folder, FolderInterface } from './Folder'
+import { Article, ArticlePreview } from './Article'
 import { Class } from './Class'
 
 export interface UserToken {
@@ -16,8 +16,8 @@ export interface UserInterface extends UserToken{
 
 //* to be retrieved on dashboard
 export interface UserDashboard extends UserInterface {
-    folders: Folder[],
-    articles: Article[]
+    folders: FolderInterface[],
+    articles: ArticlePreview[]
 }
 
 //* to be retrieved on classroom
