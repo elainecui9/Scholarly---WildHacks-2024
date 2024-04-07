@@ -25,9 +25,11 @@ const createClass_1 = require("./routes/classes/createClass");
 const editClass_1 = require("./routes/classes/editClass");
 const requiresAuth_1 = require("./routes/auth/requiresAuth");
 const validateToken_1 = require("./routes/auth/validateToken");
+const sendDashboard_1 = require("./routes/user/sendDashboard");
 //* ROUTES
 //* GET
 router.get('/validateToken', requiresAuth_1.requiresAuth, validateToken_1.validateToken);
+router.get('/user/dashboard', requiresAuth_1.requiresAuth, sendDashboard_1.sendDashboard);
 //* POST
 //auth
 router.post('/logout', logout_1.logout);

@@ -1,15 +1,15 @@
 import mongoose, { Schema } from 'mongoose'
-import { Category } from './enums'
 
-export interface Article {
+export interface ArticlePreview {
     _id: mongoose.Types.ObjectId,
     title: string,
+    date: Date,
+}
+
+export interface Article extends ArticlePreview {
     content: string,
     url: string,
     authors: string[],
-    date: Date,
-    category: Category,
-    // folder: mongoose.Types.ObjectId | null
 }
 
 const articleSchema = new Schema({
@@ -18,7 +18,6 @@ const articleSchema = new Schema({
     url: {type: String, required: true},
     authors: {type: Array, required: true},
     date: {type: Date, required: true},
-    category: {type: String, required: true},
 })
 
 export const Article = mongoose.model<Article>('Article', articleSchema)

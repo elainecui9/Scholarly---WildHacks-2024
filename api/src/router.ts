@@ -19,12 +19,14 @@ import { createClass } from './routes/classes/createClass'
 import { editClass } from './routes/classes/editClass'
 import { requiresAuth } from './routes/auth/requiresAuth'
 import { validateToken } from './routes/auth/validateToken'
+import { sendDashboard } from './routes/user/sendDashboard'
 
 
 //* ROUTES
 
 //* GET
 router.get('/validateToken', requiresAuth, validateToken)
+router.get('/user/dashboard', requiresAuth, sendDashboard)
 
 //* POST
 
