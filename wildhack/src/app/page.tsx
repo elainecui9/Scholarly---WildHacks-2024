@@ -138,10 +138,10 @@ export default function Example() {
               
               <div className="mx-auto max-w-2xl text-center pb-24">
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Understand Research Fast
+                  Accessible research now.
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Quickly understand academic journals for your own studying and research needs while also organizing your documents for groups, classes, and individual use
+                  explore something new. consolidate your learning. personalised to your needs. 
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
@@ -188,10 +188,10 @@ export default function Example() {
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-bg-red-900">Research Faster</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Everything you need to organize and simplify academic journals
+              Everything you need to learn
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              We turn academic journals into readable summaries for your students, group members, and individual collection, all in one application
+              Our customizeable comprehension tools provide accessible resources for students to explore their passions and hone learning in class and beyond
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
