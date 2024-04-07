@@ -22,7 +22,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function JournalEdit(props: {name, author, abstract}) {
+export default function JournalEdit(props: {name: string, authors: string[], abstract: string}) {
   const [selectedcomplexity, setSelectedcomplexity] = useState(complexityOptions[0])
   const [selectedMode, setSelectedMode] = useState(modeOptions[0])
   const router = useRouter();
@@ -35,7 +35,7 @@ export default function JournalEdit(props: {name, author, abstract}) {
     <div className='pl-32'>
         <Back backpage='/journals'></Back>
         <h1 className="font-bold text-3xl pb-2">{props.name}</h1>
-        <h1 className="italic text-lg pb-8">{props.author}</h1>
+        <h1 className="italic text-lg pb-8">{props.name}</h1>
         <h1>{props.abstract}</h1>
     </div>
     <div className='flex flex-col items-center pr-64'>
