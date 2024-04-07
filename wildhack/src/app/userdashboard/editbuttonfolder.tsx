@@ -23,6 +23,7 @@ export default function Example(props: any) {
   const handleCloseNameModal = () => setNameModalOpen(false);
   const handleOpenLocationModal = () => setLocationModalOpen(true);
   const handleCloseLocationModal = () => setLocationModalOpen(false);
+
   const handleChangeColor = async(colorData) => {
     const res = await fetch('http://localhost:4000/folder/edit', {
       method: "POST",
@@ -38,8 +39,7 @@ export default function Example(props: any) {
     if (res.status === 200) {
       router.refresh()
     }
-    
-    handleCloseColorModal;
+    handleCloseColorModal(); 
   };
   const handleChangeName = () => {
     console.log("Adding a new folder...");
@@ -144,7 +144,7 @@ export default function Example(props: any) {
           </div>
         </Menu.Items>
       </Transition>
-     <ChangeColor isOpen={isColorModalOpen} onClose={handleCloseColorModal} onAdd={handleChangeColor}/>
+      <ChangeColor isOpen={isColorModalOpen} onClose={handleCloseColorModal} onAdd={handleChangeColor} />
      <ChangeName isOpen={isNameModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
      <ChangeLocation isOpen={isLocationModalOpen} onClose={handleCloseLocationModal} onAdd={handleChangeLocation}/>
 
