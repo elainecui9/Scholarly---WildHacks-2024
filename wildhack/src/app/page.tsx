@@ -235,14 +235,12 @@ export default function Example() {
               <figure>
                 <blockquote className="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                   <p>
-                    “Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu praesent at a. Ornare
-                    arcu gravida natoque erat et cursus tortor consequat at. Vulputate gravida sociis enim nullam
-                    ultricies habitant malesuada lorem ac.”
+                    “Scholarly is a great tool, I use it on a daily basis to prepare for class readings and exams.”
                   </p>
                 </blockquote>
                 <figcaption className="mt-6 text-base text-white">
-                  <div className="font-semibold">Judith Black</div>
-                  <div className="mt-1">CEO of Tuple</div>
+                  <div className="font-semibold">Bobby Bobbinger</div>
+                  <div className="mt-1">Student at Northwestern University</div>
                 </figcaption>
               </figure>
             </div>
@@ -280,13 +278,12 @@ export default function Example() {
           </div>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Boost your productivity.
+              Accessible learning
               <br />
-              Start using our app today.
+              now.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
-              Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur
-              commodo do ea.
+              We believe in accessible research for everyone everywhere
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
