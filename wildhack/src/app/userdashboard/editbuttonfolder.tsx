@@ -9,12 +9,14 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isColorModalOpen, setColorModalOpen] = useState(false);
+  const [isNameModalOpen, setNameModalOpen] = useState(false);
 
-  const handleOpenColorModal = () => setModalOpen(true);
-  const handleCloseColorModal = () => setModalOpen(false);
-  const handleOpenNameModal = () => setModalOpen(true);
-  const handleCloseNameModal = () => setModalOpen(false);
+
+  const handleOpenColorModal = () => setColorModalOpen(true);
+  const handleCloseColorModal = () => setColorModalOpen(false);
+  const handleOpenNameModal = () => setNameModalOpen(true);
+  const handleCloseNameModal = () => setNameModalOpen(false);
   const handleChangeColor = () => {
     console.log("Adding a new folder...");
   };
@@ -30,7 +32,6 @@ export default function Example() {
     setSelectedAction(action);
     if (action === 'Change Color') {
       handleOpenColorModal();
-
     } else if (action === 'Rename') {
       handleOpenNameModal();
     }else {
@@ -103,8 +104,8 @@ export default function Example() {
           </div>
         </Menu.Items>
       </Transition>
-     <ChangeColor isOpen={isModalOpen} onClose={handleCloseColorModal} onAdd={handleChangeColor}/>
-     <ChangeName isOpen={isModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
+     <ChangeColor isOpen={isColorModalOpen} onClose={handleCloseColorModal} onAdd={handleChangeColor}/>
+     <ChangeName isOpen={isNameModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
 
     </Menu>
   );
