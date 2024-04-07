@@ -1,6 +1,5 @@
 "use client"
 import Header from "../frontpage/header";
-import JournalEdit from "./journaledit";
 import Footer from "../footer";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -9,6 +8,7 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useRouter } from 'next/navigation'
 import Back from "../components/back";
+import Link from "next/link";
 
 
 
@@ -33,9 +33,7 @@ export default function JournalPage() {
   const [selectedcomplexity, setSelectedcomplexity] = useState(complexityOptions[0])
   const [selectedMode, setSelectedMode] = useState(modeOptions[0])
   const router = useRouter();
-  const handleClick = () => {
-    router.push("/journalpage");
-  }
+
   const [article, setArticle] = useState();
   const id = useSearchParams().get('id')
   async function search() {
@@ -45,7 +43,6 @@ export default function JournalPage() {
         setArticle(data.results[0]);
     }
     console.log(data.results[0]);
-
   }
   useEffect(() => {
     search();
@@ -53,6 +50,23 @@ export default function JournalPage() {
   
   if (!article) {
     return <p>Loading...</p>; // or any other loading state
+  }
+
+  const handleClick = async () => {
+    const res = await fetch('http://127.0.0.1:8000/article_summary', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        url: article.bibjson.link[0].url,
+        complexity: selectedcomplexity.title,
+        mode: selectedMode.title
+      })
+    })
+    const data = await res.json()
+    console.log(data)
+    router.push("/journalpage");
   }
   return (
     
@@ -187,9 +201,9 @@ export default function JournalPage() {
         </>
       )}
     </Listbox>
-    <button onClick={handleClick} className='mt-16 text-bold bg-red-900 text-white px-8 py-2 rounded-lg'>
+    <Link href={`/journalpage?id=${article.bibjson.link[0].url}`} className='mt-16 text-bold bg-red-900 text-white px-8 py-2 rounded-lg'>
       Generate Text
-    </button>
+    </Link>
     </div>
 
     
