@@ -7,14 +7,13 @@ export default function AddFolderModal({ isOpen, onClose, onAdd }) {
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    // Logic to add a new folder
-    // Example object you might want to pass to the onAdd function
+    e.preventDefault(); 
+    setFolderColor(e.color);
     onAdd({
-      color: folderColor,
-    });
+        color: folderColor,
+      });
     setFolderColor("");
-    onClose(); // Close the modal after adding
+    onClose(); 
   };
   const handleClose = (e) => {
     e.preventDefault(); // Prevent default form submission behavior
@@ -34,7 +33,7 @@ export default function AddFolderModal({ isOpen, onClose, onAdd }) {
           <label htmlFor="folderColor" className="block text-sm font-medium text-gray-700">Folder Color</label>
           <select id="folderColor" value={folderColor} onChange={(e) => setFolderColor(e.target.value)} className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-900 focus:ring-red-900 sm:text-sm" required>
             <option value="">Select a color</option>
-            <option value="red">Black</option>
+            <option value="black">Black</option>
             <option value="red">Red</option>
             <option value="blue">Blue</option>
             <option value="green">Green</option>
