@@ -17,17 +17,14 @@ export const saveArticle = async (req: Request, res: Response) => {
             url: req.body.url,
             authors: req.body.authors,
             date: Date.now(),
-            category: req.body.category
         })
         await article.save()
-        if (req.body.class && req.body.folder == null) {
+        if (req.body.folder) {
+            await Folder.findOneAndUpdate({_id: req.body.folder}, {$push: {articles: article._id}})
+        } else {
             await User.findOneAndUpdate({_id: req.body.payload._id}, {$push: {articles: article._id}})
-        } else if (req.body.class && (req.body.folder == null)) {
-            await Class.findOneAndUpdate({_id: req.body.payload._id}, {$push: {articles: article._id}})
-        } else if (req.body.folder) {
-              await Folder.findOneAndUpdate({_id: req.body.payload._id}, {$push: {articles: article._id}})
-        } 
-        res.status(200).send(article)
+        }
+        res.status(200).send("Successfully saved article")
     } catch (error) {
         res.status(400).send(error)
         
