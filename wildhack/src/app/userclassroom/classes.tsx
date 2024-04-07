@@ -4,37 +4,29 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Editbutton from "../userdashboard/editbuttonfolder";
 import Drive from "../userdashboard/drive";
 import Classcard from "./classcard";
+import {useState, useEffect} from "react";
 
-const classes = [
-  {
-    name: 'SOCIOL 308',
-    datecreated: '2023-01-23',
-    href:"/class",
-    owner: "Chris",
-  },
-  {
-    name: 'COMP_SCI 211',
-    datecreated: '2023-01-23',
-    href:"/class",
-    owner: "Hajo",
-  },
-  {
-    name: 'DSGN 208',
-    datecreated: '2023-01-23',
-    href:"/class",
-    owner: "Elaine",
-  },
-  {
-    name: 'BIOL 150',
-    datecreated: '2023-01-23',
-    href:"/class",
-    owner: "Chris",
-  },
- 
 
-]
 
 export default function Classes(){
+  const [classes, setClasses] = useState();
+
+  async function sendClass(){
+    const res = await fetch("http://localhost:4000/class//user/classes", {
+      method:"GET",
+      credentials: 'include',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+    })
+    const data = await res.json();
+    setClasses(data);
+  }
+  useEffect(()=>{
+    sendClass();
+    
+  },[]);
+
     return (
         <div className="flex flex-wrap gap-4 justify-center">
         {classes.map((class0) => (
