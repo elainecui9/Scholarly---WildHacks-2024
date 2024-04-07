@@ -8,23 +8,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.requiresAuth = void 0;
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const requiresAuth = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const token = req.cookies['auth-token'];
-    if (!token)
-        return res.status(400).json('You are not logged in');
+exports.validateToken = void 0;
+const User_1 = require("../../models/User");
+const validateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const payload = jsonwebtoken_1.default.verify(token, process.env.PRIVATEKEY);
-        req.body.payload = payload;
-        next();
+        const user = yield User_1.User.findById(req.body.payload._id);
+        const payload = {
+            _id: user._id,
+        };
+        res.send(payload);
     }
     catch (error) {
         res.status(400).json(error);
     }
 });
-exports.requiresAuth = requiresAuth;
+exports.validateToken = validateToken;
