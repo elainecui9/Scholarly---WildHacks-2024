@@ -41,15 +41,21 @@ export default function JournalPage() {
   async function search() {
     const res = await fetch(`https://doaj.org/api/search/articles/${id}`);
     const data = await res.json();
-          setArticle(data.results[0]);
+    if (data.results?.length > 0) {
+        setArticle(data.results[0]);
+    }
     console.log(data.results[0]);
 
   }
   useEffect(() => {
     search();
   }, [])
-
+  
+  if (!article) {
+    return <p>Loading...</p>; // or any other loading state
+  }
   return (
+    
     <section className= "h-screen bg-white">
         <div>
             <Header></Header>
