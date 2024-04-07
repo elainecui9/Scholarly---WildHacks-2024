@@ -39,9 +39,25 @@ export default function Journal() {
   if (!article) {
     return
   }
+
+  const handleSave = async() => {
+    const res = await fetch("http://localhost:4000/article/save",{
+      method: "POST",
+      credentials: 'include',
+      headers: {
+      'Content-Tyep' : 'application/json'
+      },
+      body :{
+        title: name,
+        content: article.article_summary,
+        url: url,
+        authors: authors,
+      },
+    })
+  }
   console.log(article)
   return (
-    <section className="p-8">
+    <section className="p-8 h-full bg-white">
       <Back backpage="/journals"></Back>
         <section className="pt-8 pl-32 flex justify-between px-32">
             <div >
@@ -58,6 +74,9 @@ export default function Journal() {
             <div>
                 <button className="text-white bg-black rounded-full px-4 py-2">
                     See Actual Journal
+                </button>
+                <button onClick={handleSave} className="text-white bg-black rounded-full px-4 py-2">
+                    Save Summary
                 </button>
             </div>
         </section>
