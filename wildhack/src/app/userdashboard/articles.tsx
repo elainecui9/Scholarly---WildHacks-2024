@@ -12,12 +12,12 @@ export default function Articles({article, key})
             <MdArticle style={{ color: 'black', width: '32px', height: '32px' }} />
             <p className="text-md font-semibold leading-6 text-gray-900">
                 <a href={article.href}>
-                    {article.name}
+                    {article.title}
                 </a>
             </p>
         </div>
         <div className="flex-grow text-center">
-            <h1 className="text-sm text-gray-500">{article.datecreated}</h1>
+            <h1 className="text-sm text-gray-500">{article.date}</h1>
         </div>
         <div className="flex items-center gap-x-4">
             <Editbuttonarticle></Editbuttonarticle>

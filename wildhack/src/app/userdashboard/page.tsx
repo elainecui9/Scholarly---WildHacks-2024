@@ -96,31 +96,46 @@ const art = [
 export default function UserDashboard() {
   const [articles, setarticles] = useState<
 {
-  name: string,
-  datecreated: string,
+  title: string,
+  date: string,
   href:string,
 }[]
 >([]);
 const [folders, setfolders] = useState<
 {
   name: string,
-  datecreated: string,
+  date: string,
   href:string,
   articles: [{
-    name: string,
+    title: string,
     datecreated: string,
     href:string,
   }];
 }[]
->([]);
+  >([]);
+  
+  async function getData() {
+    const res = await fetch("http://localhost:4000/user/dashboard", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    const data = await res.json()
+    console.log(data);
+    setarticles(data.articles);
+    console.log(articles);
+    setfolders(data.folders);
+    console.log(folders);
+  }
 
 const [path, setPath] = useState<string>("Home > ");
 const [infolder, setinfolder] = useState<boolean>(false);
 const [rerender, setrerender] = useState<boolean>(false);
 
-useEffect(() => {
-  setarticles(art);
-  setfolders(fold);
+  useEffect(() => {
+    getData()
   setrerender(false);
   setinfolder(false);
   setPath("Home > ");
