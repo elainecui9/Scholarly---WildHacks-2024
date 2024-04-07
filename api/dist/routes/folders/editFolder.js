@@ -13,7 +13,7 @@ exports.editFolder = void 0;
 const Folder_1 = require("../../models/Folder");
 const editFolder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        if (req.body.color) {
+        if (req.body.color.color) {
             yield Folder_1.Folder.findByIdAndUpdate(req.body.folder, { $set: { color: req.body.color } });
         }
         else if (req.body.name) {

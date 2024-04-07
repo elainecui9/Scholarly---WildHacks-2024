@@ -4,9 +4,11 @@ import Folders from "./folders";
 import {useEffect, useState} from "react";
 import Back from "../components/back";
 import AddFolderModal from '../components/AddFolderModal';
+import { useRouter } from "next/navigation";
 
 
-export default function Dashboard({setrerender, infolder, setinfolder, articles, setarticles, folders, setfolders, path, setPath}) {
+export default function Dashboard({ setrerender, infolder, setinfolder, articles, setarticles, folders, setfolders, path, setPath }) {
+  const router = useRouter()
   const handleClick = () => {
     setrerender(true);
   };
@@ -14,7 +16,19 @@ export default function Dashboard({setrerender, infolder, setinfolder, articles,
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
-  const handleAddFolder = () => {
+  const handleAddFolder = async(folder) => {
+    await fetch('http://localhost:4000/folder/create', {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        color: folder.color,
+        mutable: true,
+        name: folder.name
+       })
+    })
   };
 
   return (

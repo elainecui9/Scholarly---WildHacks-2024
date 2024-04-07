@@ -79,11 +79,11 @@ export default function Journal() {
                 <p className="whitespace-pre-line">{article.article_summary}</p>
                 </motion.div>
             </div>
-            <div>
-                <button className="text-white bg-black rounded-full px-4 py-2">
-                    See Actual Journal
+            <div className="pl-32">
+                <button className="text-white bg-red-900 rounded-full px-4 py-4 mb-4">
+                    See Article
                 </button>
-                <button onClick={handleSave} className="text-white bg-black rounded-full px-4 py-2">
+                <button onClick={handleSave} className="text-white bg-red-900 rounded-full px-4 py-2">
                     Save Summary
                 </button>
             </div>
