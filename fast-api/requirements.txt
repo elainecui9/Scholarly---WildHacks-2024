@@ -1,9 +1,7 @@
 fastapi
 uvicorn
-openai
 utils
 requests
-os
 dotenv
 anthropic
 bs4

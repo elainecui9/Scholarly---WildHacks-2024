@@ -18,7 +18,7 @@ def summarize_pdf(pdf_text, mode, complexity):
     Prompt = "create " + mode + "of the following article" + pdf_text + "at the reading level of a " + complexity
     
     message = client.messages.create(
-        model="claude-3-opus-20240229",
+        model="claude-3-sonnet-20240229", #"claude-3-opus-20240229"
         max_tokens=1024,
         #system=instructions,
         messages=[
@@ -36,5 +36,4 @@ def scrape_pdf(url):
     pages = reader.pages
     # get all pages data
     text = "".join([page.extract_text() for page in pages])
-
     return text

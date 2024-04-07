@@ -16,6 +16,7 @@ async def generate_article_summary(article: Article):
     pdf_url = scrape_pdf_url(article.url)
     summary = summarize_pdf(scrape_pdf(pdf_url), article.mode, article.complexity)
     return {"article_summary": summary}
+    pass
 
 @app.get("/ok")
 async def ok_endpoint():
