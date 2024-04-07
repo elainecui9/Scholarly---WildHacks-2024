@@ -6,23 +6,23 @@ import Dashboard from "./dashboard";
 import {useState, useEffect} from "react";
 
 
-const folders = [
+const fold = [
   {
     name: 'Biology',
     datecreated: '2023-01-23',
-    href:"/userdashboard",
+    href:"#",
     articles: [{
-        name: 'Hi',
+        name: 'B1',
         datecreated: '2023-01-23',
         href:"#",
       },
       {
-        name: 'Hi1',
+        name: 'B2',
         datecreated: '2023-01-23',
         href:"#",
       },
       {
-        name: 'Hi2',
+        name: 'B3',
         datecreated: '2023-01-23',
         href:"#",
       }
@@ -32,13 +32,44 @@ const folders = [
     name: 'Humanities',
     datecreated: '2023-01-23',
     href:"#",
+    articles: [{
+      name: 'H1',
+      datecreated: '2023-01-23',
+      href:"#",
+    },
+    {
+      name: 'H2',
+      datecreated: '2023-01-23',
+      href:"#",
+    },
+    {
+      name: 'H3',
+      datecreated: '2023-01-23',
+      href:"#",
+    }
+  ]
   },
   {
     name: 'CS 150',
     datecreated: '2023-01-23',
     href:"#",
+    articles: [{
+      name: 'CS1',
+      datecreated: '2023-01-23',
+      href:"#",
+    },
+    {
+      name: 'CS2',
+      datecreated: '2023-01-23',
+      href:"#",
+    },
+    {
+      name: 'CS3',
+      datecreated: '2023-01-23',
+      href:"#",
+    }
+  ]
   },
- 
 
 ]
 
@@ -70,14 +101,41 @@ export default function UserDashboard() {
   href:string,
 }[]
 >([]);
+const [folders, setfolders] = useState<
+{
+  name: string,
+  datecreated: string,
+  href:string,
+  articles: [{
+    name: string,
+    datecreated: string,
+    href:string,
+  }];
+}[]
+>([]);
+
+const [path, setPath] = useState<string>("Home > ");
+const [infolder, setinfolder] = useState<boolean>(false);
+const [rerender, setrerender] = useState<boolean>(false);
+
 useEffect(() => {
   setarticles(art);
-}, [articles]);
+  setfolders(fold);
+  setrerender(false);
+  setinfolder(false);
+  setPath("Home > ");
+  console.log(articles);
+}, [rerender]);
 
 
 
   return (
-    <Dashboard name="Chris" folders = {folders} setarticles = {setarticles} articles = {articles}></Dashboard>
+    <section className="bg-white">
+      <Header></Header>
+      <Dashboard name="Chris" setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
+      <Footer></Footer>
+    </section>
+    
   )
 }
 
