@@ -3,6 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import ChangeColor from "../components/changeColor"; 
 import ChangeName from "../components/changeName";
+import ChangeLocation from "../components/changeFolderLocation";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -11,16 +12,22 @@ function classNames(...classes) {
 export default function Example() {
   const [isColorModalOpen, setColorModalOpen] = useState(false);
   const [isNameModalOpen, setNameModalOpen] = useState(false);
+  const [isLocationModalOpen, setLocationModalOpen] = useState(false);
 
 
   const handleOpenColorModal = () => setColorModalOpen(true);
   const handleCloseColorModal = () => setColorModalOpen(false);
   const handleOpenNameModal = () => setNameModalOpen(true);
   const handleCloseNameModal = () => setNameModalOpen(false);
+  const handleOpenLocationModal = () => setLocationModalOpen(true);
+  const handleCloseLocationModal = () => setLocationModalOpen(false);
   const handleChangeColor = () => {
     console.log("Adding a new folder...");
   };
   const handleChangeName = () => {
+    console.log("Adding a new folder...");
+  };
+  const handleChangeLocation = () => {
     console.log("Adding a new folder...");
   };
 
@@ -34,6 +41,9 @@ export default function Example() {
       handleOpenColorModal();
     } else if (action === 'Rename') {
       handleOpenNameModal();
+    }
+    else if (action === 'Move Folder') {
+      handleOpenLocationModal();
     }else {
       // Handle other actions here
       console.log(`Action chosen: ${action}`);
@@ -101,11 +111,25 @@ export default function Example() {
                 </button>
               )}
             </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block w-full text-left px-4 py-2 text-sm'
+                  )}
+                  onClick={() => handleAction('Move Folder')}
+                >
+                  Move Folder
+                </button>
+              )}
+            </Menu.Item>
           </div>
         </Menu.Items>
       </Transition>
      <ChangeColor isOpen={isColorModalOpen} onClose={handleCloseColorModal} onAdd={handleChangeColor}/>
      <ChangeName isOpen={isNameModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
+     <ChangeLocation isOpen={isLocationModalOpen} onClose={handleCloseLocationModal} onAdd={handleChangeLocation}/>
 
     </Menu>
   );

@@ -3,16 +3,23 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
 import ChangeName from "../components/changeName";
+import ChangeLocation from "../components/changeArticleLocation";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Example() {
-    const [isModalOpen, setModalOpen] = useState(false);
-    const handleOpenNameModal = () => setModalOpen(true);
-  const handleCloseNameModal = () => setModalOpen(false);
-  const handleChangeName = () => {
+    const [isNameModalOpen, setNameModalOpen] = useState(false);
+    const handleOpenNameModal = () => setNameModalOpen(true);
+    const handleCloseNameModal = () => setNameModalOpen(false);
+    const handleChangeName = () => {
+    console.log("Adding a new folder...");
+  };
+  const [isChangeLocationOpen, setisChangeLocationOpen] = useState(false);
+    const handleOpenChangeLocationModal = () => setisChangeLocationOpen(true);
+  const handleCloseChangeLocationModal = () => setisChangeLocationOpen(false);
+  const handleChangeLoction = () => {
     console.log("Adding a new folder...");
   };
   const [selectedAction, setSelectedAction] = useState('');
@@ -22,7 +29,9 @@ export default function Example() {
     setSelectedAction(action);
     if (action === 'Rename') {
       handleOpenNameModal();
-    }else {
+    } else if (action === 'Move Article') {
+      handleOpenChangeLocationModal(); // This line was corrected
+    } else {
       // Handle other actions here
       console.log(`Action chosen: ${action}`);
     }
@@ -77,11 +86,26 @@ export default function Example() {
                 </a>
               )}
             </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                  onClick={() => handleAction('Move Article')}
+                >
+                  Move Article
+                </a>
+              )}
+            </Menu.Item>
             
           </div>
         </Menu.Items>
       </Transition>
-      <ChangeName isOpen={isModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
+      <ChangeName isOpen={isNameModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
+      <ChangeLocation isOpen={isChangeLocationOpen} onClose={handleCloseChangeLocationModal} onAdd={handleOpenChangeLocationModal}/>
     </Menu>
   )
 }
