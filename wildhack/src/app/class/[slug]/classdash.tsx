@@ -30,7 +30,7 @@ export default function Dashboard({students, setrerender, infolder, setinfolder,
     <section className= "bg-white h-full">
         <div className="flex flex-row justify-between p-8">
           <div className="flex flex-col">
-            <h1 className="text-2xl font-bold">Welcome to {name}'s Classroom</h1>
+            <h1 className="text-2xl font-bold">Welcome to Classroom</h1>
             <h1 className="pt-2">{path}</h1>
             {infolder &&
             <div onClick={handleClick}>
