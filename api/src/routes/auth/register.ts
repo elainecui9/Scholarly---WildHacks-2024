@@ -34,7 +34,6 @@ export const register = async (req: Request, res: Response) => {
             secure: true,
             sameSite: 'strict',
             httpOnly: true,
-
         }).status(200).json(`Welcome, ${user.firstName}!`)
     } catch (error) {
         res.status(400).json(error)

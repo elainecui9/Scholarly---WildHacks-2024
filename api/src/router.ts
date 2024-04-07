@@ -11,7 +11,7 @@ import { register } from './routes/auth/register'
 
 // POST
 router.post('/logout', logout)
-router.post('login', login)
+router.post('/login', login)
 router.post('/register', register)
 
 export {router}
