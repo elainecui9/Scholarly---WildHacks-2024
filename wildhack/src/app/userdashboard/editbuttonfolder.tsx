@@ -4,12 +4,14 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import ChangeColor from "../components/changeColor"; 
 import ChangeName from "../components/changeName";
 import ChangeLocation from "../components/changeFolderLocation";
+import { useRouter } from 'next/navigation';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function Example(props: any) {
+  const router = useRouter()
   const [isColorModalOpen, setColorModalOpen] = useState(false);
   const [isNameModalOpen, setNameModalOpen] = useState(false);
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
@@ -21,7 +23,21 @@ export default function Example() {
   const handleCloseNameModal = () => setNameModalOpen(false);
   const handleOpenLocationModal = () => setLocationModalOpen(true);
   const handleCloseLocationModal = () => setLocationModalOpen(false);
-  const handleChangeColor = (colorData) => {
+  const handleChangeColor = async(colorData) => {
+    const res = await fetch('http://localhost:4000/folder/edit', {
+      method: "POST",
+      credentials: "include",
+       headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        color: colorData,
+        folder: props.id
+       })
+    })
+    if (res.status === 200) {
+      router.refresh()
+    }
     
     handleCloseColorModal;
   };

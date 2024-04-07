@@ -16,7 +16,7 @@ export default function Drives({ folder, articles, setarticles, setfolders, key,
     return (
         <section className="flex justify-between items-center gap-x-6 py-5">
             <div className="flex gap-x-4 items-center">
-                <FaFolder style={{ color: 'black', width: '32px', height: '32px' }} />
+                <FaFolder style={{ color: folder.color, width: '32px', height: '32px' }} />
                 <p onClick ={handleClick} className="text-md font-semibold leading-6 text-gray-900">
                     <a href={folder.href}>
                         {folder.name}
@@ -27,7 +27,9 @@ export default function Drives({ folder, articles, setarticles, setfolders, key,
                 <h1 className="text-sm text-gray-500">{folder.date}</h1>
             </div>
             <div className="flex items-center gap-x-4">
-                <Editbuttonfolder></Editbuttonfolder>
+                <Editbuttonfolder
+                    id={folder._id}
+                ></Editbuttonfolder>
                 <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </div>
         </section>

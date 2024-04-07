@@ -15,7 +15,6 @@ export default function Dashboard({setrerender, infolder, setinfolder, articles,
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
   const handleAddFolder = () => {
-    console.log("Adding a new folder...");
   };
 
   return (
