@@ -36,5 +36,4 @@ def scrape_pdf(url):
     pages = reader.pages
     # get all pages data
     text = "".join([page.extract_text() for page in pages])
-
     return text
