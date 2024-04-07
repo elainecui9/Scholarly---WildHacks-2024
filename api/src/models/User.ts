@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 import { Folder, FolderInterface } from './Folder'
 import { Article, ArticlePreview } from './Article'
-import { Class } from './Class'
+import { Class, ClassPreview } from './Class'
 
 export interface UserToken {
     _id: mongoose.Types.ObjectId,
@@ -18,12 +18,10 @@ export interface UserInterface extends UserToken{
 export interface UserDashboard extends UserInterface {
     folders: FolderInterface[],
     articles: ArticlePreview[]
+    classes: ClassPreview[]
 }
 
-//* to be retrieved on classroom
-export interface UserClassroom extends UserInterface {
-    classes: Class[]
-}
+
 
 //* only for registration purposes
 export interface UserSchema extends UserInterface {
