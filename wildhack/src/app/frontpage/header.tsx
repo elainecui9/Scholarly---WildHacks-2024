@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import logo from "../Logo .png";
+import Image from "next/image";
 
 const navigation = [
   { name: 'Home', href: '/frontpage' },
@@ -16,9 +18,9 @@ function Header() {
   return (
     <header className="bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <a href="#" className="-m-1.5 p-1.5">
+        <a href="/frontpage" className="-m-1.5 p-1.5">
           <span className="sr-only">Your Company</span>
-          <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=red&shade=600" alt="" />
+          <Image className="h-16 w-auto" src={logo} alt="" />
         </a>
         <div className="flex lg:hidden">
           <button
@@ -44,9 +46,9 @@ function Header() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              <Image
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=red&shade=900"
+                src={logo}
                 alt=""
               />
             </a>

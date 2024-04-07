@@ -38,7 +38,7 @@ export default function AddClassModel({ isOpen, onClose, onAdd }) {
         <h2 className="text-lg font-bold mb-4">Add New Class</h2>
         
         <div className="mb-4">
-          <label htmlFor="folderName" className="block text-sm font-medium text-gray-700">Folder Name</label>
+          <label htmlFor="folderName" className="block text-sm font-medium text-gray-700">Class Name</label>
           <input type="text" id="folderName" value={className} onChange={(e) => setClassName(e.target.value)} className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-900 focus:ring-red-900 sm:text-sm" required />
         </div>
         

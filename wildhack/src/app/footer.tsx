@@ -1,3 +1,5 @@
+import logo from "./Logo .png";
+import Image from "next/image";
 export default function Footer(){
 
     return (
@@ -10,12 +12,12 @@ export default function Footer(){
             Footer
           </h2>
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <img
-              className="h-7"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            <Image
+              className="w-48"
+              src={logo}
               alt="Company name"
             />
-            <h1>APPLICATION TITLE</h1>
+
             <h1>Coded By: Chris Heo, Hajo Wolfram, and Elaine Cui</h1>
           </div>
         </footer>

@@ -31,7 +31,7 @@ export default function Classroom() {
           <h1 className="text-2xl font-bold">Welcome to Your Classes</h1>
           <div>
           <button onClick={handlejoinOpenModal} className="mr-4 text-sm min-h-12 max-h-12 font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Join Classroom</button>
-          <button onClick={handleOpenModal} className="text-sm min-h-12 max-h-12 font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Create join Classroom</button>
+          <button onClick={handleOpenModal} className="text-sm min-h-12 max-h-12 font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Create New Classroom</button>
           </div>
           
         </div>
