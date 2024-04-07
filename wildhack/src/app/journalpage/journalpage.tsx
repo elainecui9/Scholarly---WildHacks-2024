@@ -37,11 +37,11 @@ export default function Journal() {
     handleUrl();
   }, [])
 
-  if (!article) {
+  setTimeout( () => {
     return(
       <Loading></Loading>
     )
-  }
+  }, 10000)
 
   const handleSave = async() => {
     const res = await fetch("http://localhost:4000/article/save",{
@@ -50,18 +50,18 @@ export default function Journal() {
       headers: {
       'Content-Type' : 'application/json'
       },
-      body :{
+      body :JSON.stringify({
         title: name,
         content: article.article_summary,
         url: url,
         authors: authors,
-      },
+      }),
     })
     router.push("/userdashboard");
   }
   if (article == null){
-    return(
-
+    return (
+      <Loading/>
     )
   }
   console.log(article)
