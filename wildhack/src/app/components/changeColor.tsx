@@ -11,7 +11,6 @@ export default function AddFolderModal({ isOpen, onClose, onAdd }) {
     // Logic to add a new folder
     // Example object you might want to pass to the onAdd function
     onAdd({
-
       color: folderColor,
     });
     setFolderColor("");

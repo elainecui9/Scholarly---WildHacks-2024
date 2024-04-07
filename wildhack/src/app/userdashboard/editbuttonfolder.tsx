@@ -21,8 +21,9 @@ export default function Example() {
   const handleCloseNameModal = () => setNameModalOpen(false);
   const handleOpenLocationModal = () => setLocationModalOpen(true);
   const handleCloseLocationModal = () => setLocationModalOpen(false);
-  const handleChangeColor = () => {
-    console.log("Adding a new folder...");
+  const handleChangeColor = (colorData) => {
+    
+    handleCloseColorModal;
   };
   const handleChangeName = () => {
     console.log("Adding a new folder...");
