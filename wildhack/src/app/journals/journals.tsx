@@ -11,6 +11,7 @@ export default function Journals() {
     const res = await fetch(`https://doaj.org/api/search/articles/${query}`)
     const data = await res.json()
     setResults(data.results)
+    console.log(data);
   }
   useEffect(() => {
     search()
@@ -24,6 +25,7 @@ export default function Journals() {
             key={article.id}
             title={article.bibjson.title}
             abstract={article.bibjson.abstract}
+            author ={article.bibjson.author}
             id={article.id}
           />
         ))}
