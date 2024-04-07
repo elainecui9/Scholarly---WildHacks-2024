@@ -3,10 +3,14 @@ import { FaFolder } from "react-icons/fa";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Editbutton from "./editbutton";
 
-export default function Drives(props:{folder})
+export default function Drives(props:{folder, articles}, setarticles)
 {
+    const handleClick = () => {
+        setarticles(props.folder.articles)
+        console.log(props.articles)
+      };
     return (
-            <li key={props.folder.name} className="relative flex justify-between gap-x-6 py-5">
+            <li key={props.folder.name} onClick ={handleClick} className="relative flex justify-between gap-x-6 py-5">
             <div className="flex min-w-0 gap-x-4">
                 <FaFolder style={{ color: 'black' , width: '32px', height: '32px'}} />
                 <div className="min-w-0 flex-auto">

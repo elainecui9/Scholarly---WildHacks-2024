@@ -1,10 +1,10 @@
 "use client"
 import Header from "../frontpage/header";
 import Footer from "../footer";
-import Folders from "../userdashboard/folders";
+import Folders from "./folders";
 
 
-export default function Dashboard(props: {name}) {
+export default function Dashboard(props: {name, folders, articles, setarticles}) {
 
   return (
     <section className= "bg-white h-full">
@@ -14,7 +14,7 @@ export default function Dashboard(props: {name}) {
           <button className="text-sm font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Create New Folder</button>
         </div>
         <div className="p-4">
-          <Folders></Folders>
+          <Folders folders = {props.folders} articles = {props.articles} setarticles ={props.setarticles}></Folders>
         </div>
     <Footer></Footer>
     </section>

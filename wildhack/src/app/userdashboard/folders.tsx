@@ -1,57 +1,17 @@
 "use client"
 import { FaFolder } from "react-icons/fa";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import Drive from "../userclassroom/drive";
+import Drive from "./drive";
 import Articles from "./articles";
 
-const folders = [
-  {
-    name: 'Biology',
-    datecreated: '2023-01-23',
-    href:"#",
-  },
-  {
-    name: 'Humanities',
-    datecreated: '2023-01-23',
-    href:"#",
-  },
-  {
-    name: 'CS 150',
-    datecreated: '2023-01-23',
-    href:"#",
-  },
- 
-
-]
-
-const articles = [
-    {
-      name: 'What is life',
-      datecreated: '2023-01-23',
-      href:"#",
-    },
-    {
-      name: 'Psychology of CS',
-      datecreated: '2023-01-23',
-      href:"#",
-    },
-    {
-      name: 'Does water expire',
-      datecreated: '2023-01-23',
-      href:"#",
-    },
-   
-  
-  ]
-
-export default function Folders(){
+export default function Folders(props:{folders, articles, setarticles}){
     return (
-        <ul role="list" className="divide-y divide-gray-100 p-8 border-2 rounded-lg">
-        {folders.map((folder) => (
-            <Drive folder = {folder}></Drive>
+        <ul role="list" key ="" className="divide-y divide-gray-100 p-8 border-2 rounded-lg">
+        {props.folders.map((folder) => (
+            <Drive folder = {folder} setarticles = {props.setarticles} articles = {props.articles}></Drive>
         ))}
-        {articles.map((article) => (
-            <Articles article = {article}></Articles>
+        {props.articles.map((article) => (
+            <Articles article = {article} ></Articles>
         ))}
     </ul>
     )

@@ -1,10 +1,11 @@
 "use client"
 import { MdArticle } from "react-icons/md";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import Editbutton from "../userclassroom/editbutton";
+import Editbutton from "./editbutton";
 
 export default function Drives(props:{article})
 {
+
     return (
             <li key={props.article.name} className="relative flex justify-between gap-x-6 py-5">
             <div className="flex min-w-0 gap-x-4">

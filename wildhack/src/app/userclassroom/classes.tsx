@@ -1,8 +1,8 @@
 "use client"
 import { FaFolder } from "react-icons/fa";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import Editbutton from "./editbutton";
-import Drive from "./drive";
+import Editbutton from "../userdashboard/editbutton";
+import Drive from "../userdashboard/drive";
 import Class from "./class";
 
 const classes = [
