@@ -118,10 +118,24 @@ const [folders, setfolders] = useState<
 const [path, setPath] = useState<string>("Home > ");
 const [infolder, setinfolder] = useState<boolean>(false);
 const [rerender, setrerender] = useState<boolean>(false);
+const [students, setStudents]= useState();
+async function getData(){
+    const res = await fetch("http://localhost:4000/class/send", {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+    })
+    const data = await res.json();
+    console.log(data);
+    setarticles(data.articles);
+    setfolders(data.folders);
+    setStudents(data.students);
+}
 
 useEffect(() => {
-  setarticles(art);
-  setfolders(fold);
+  getData();
   setrerender(false);
   setinfolder(false);
   setPath("Home > ");
