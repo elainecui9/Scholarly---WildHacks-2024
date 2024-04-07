@@ -35,7 +35,7 @@ router.get('/validateToken', requiresAuth_1.requiresAuth, validateToken_1.valida
 router.get('/user/dashboard', requiresAuth_1.requiresAuth, sendDashboard_1.sendDashboard);
 router.get('/user/classes', requiresAuth_1.requiresAuth, sendClasses_1.sendClasses);
 router.get("/class/:class", requiresAuth_1.requiresAuth, sendClass_1.sendClass);
-router.get('/article/find', findArticle_1.findArticle);
+router.get('/article/:article', findArticle_1.findArticle);
 //* POST
 //auth
 router.post('/logout', logout_1.logout);

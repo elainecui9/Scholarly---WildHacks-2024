@@ -15,7 +15,7 @@ export default function Article({params}: {params: {slug:string}}) {
   const [article, setArticle] = useState(null)
 
     async function search() {
-        const res = await fetch(`http://localhost:4000/article/find/${params.slug}`,{
+        const res = await fetch(`http://localhost:4000/article/${params.slug}`,{
             method: "GET",
                   credentials: "include",
       headers: {

@@ -13,7 +13,7 @@ exports.findArticle = void 0;
 const Article_1 = require("../../models/Article");
 const findArticle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const param = req.params.q;
+        const param = req.params.article;
         const article = yield Article_1.Article.findById(param);
         res.status(200).json(article);
     }
