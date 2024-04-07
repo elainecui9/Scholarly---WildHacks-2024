@@ -4,11 +4,12 @@ import {useState, useEffect} from "react";
 import {useRouter} from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion"
+import Loading from "../components/loadingpage";
 
 
 
 export default function Journal() {
-  const [article, setArticle] = useState();
+  const [article, setArticle] = useState(null);
   const router = useRouter();
 
   const url = decodeURIComponent(useSearchParams().get('url') as string);
@@ -37,7 +38,9 @@ export default function Journal() {
   }, [])
 
   if (!article) {
-    return
+    return(
+      <Loading></Loading>
+    )
   }
 
   const handleSave = async() => {
@@ -54,6 +57,11 @@ export default function Journal() {
         authors: authors,
       },
     })
+  }
+  if (article == null){
+    return(
+
+    )
   }
   console.log(article)
   return (
