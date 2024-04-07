@@ -31,7 +31,7 @@ import { findArticle } from './routes/articles/findArticle'
 router.get('/validateToken', requiresAuth, validateToken)
 router.get('/user/dashboard', requiresAuth, sendDashboard)
 router.get('/user/classes', requiresAuth, sendClasses)
-router.get("/class/:class", requiresAuth, sendClass)
+router.get("/class/:q", requiresAuth, sendClass)
 router.get('/article/:article', findArticle)
 
 //* POST

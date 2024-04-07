@@ -1,9 +1,9 @@
 "use client"
 
-import Folders from "../userdashboard/folders";
+import Folders from "../../userdashboard/folders";
 import {useEffect, useState} from "react";
-import Back from "../components/back";
-import AddFolderModal from '../components/AddFolderModal';
+import Back from "../../components/back";
+import AddFolderModal from '../../components/AddFolderModal';
 import Students from "./students";
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaUserGroup } from "react-icons/fa6";
@@ -22,8 +22,8 @@ export default function Dashboard({students, setrerender, infolder, setinfolder,
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
-  const handleAddFolder = () => {
-    console.log("Adding a new folder...");
+  const handleAddFolder = (colorData) => {
+    
   };
 
   return (
