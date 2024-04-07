@@ -25,25 +25,25 @@ const features = [
   {
     name: 'Search for Journals',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+      'We provide a comprehensive database covering various academic fields and their intersections.',
     icon: DocumentMagnifyingGlassIcon,
   },
   {
     name: 'Save Summaries',
     description:
-      'Simply enter in a prompt and receive an easy to read summary of the article.',
+      'Simply enter a customizable prompt to generate a tailored summary of any article.',
     icon: LockClosedIcon,
   },
   {
     name: 'Create Classrooms',
     description:
-      'Collect article summaries that can be shared with students and other group members.',
+      'Share articles with our classroom functionality that supports students and groups.',
     icon: PencilIcon,
   },
   {
     name: 'Collect Articles',
     description:
-      'Save summarized articles in your dashboard so you can reference later on.',
+      'Save summarized articles to your dashboard for future reference.',
     icon: BookOpenIcon,
   },
 ]
@@ -91,9 +91,9 @@ const tiers = [
 const faqs = [
   {
     id: 1,
-    question: "What's the best thing about Switzerland?",
+    question: "How does scholarly support teachers in a classroom environment?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "We provide classroom functionality that enables teachers to share articles with their class",
   },
   // More questions...
 ]
@@ -235,14 +235,13 @@ export default function Example() {
               <figure>
                 <blockquote className="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                   <p>
-                    “Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu praesent at a. Ornare
-                    arcu gravida natoque erat et cursus tortor consequat at. Vulputate gravida sociis enim nullam
-                    ultricies habitant malesuada lorem ac.”
+                    “Scholarly is great, I use it on a daily basis to prepare for class readings and exams.
+                    My daughter also enjoys reading about new technology and innovation in the weekly newsletters.”
                   </p>
                 </blockquote>
                 <figcaption className="mt-6 text-base text-white">
-                  <div className="font-semibold">Judith Black</div>
-                  <div className="mt-1">CEO of Tuple</div>
+                  <div className="font-semibold">Katelyn Cai</div>
+                  <div className="mt-1">Student at Northwestern University</div>
                 </figcaption>
               </figure>
             </div>
@@ -280,13 +279,12 @@ export default function Example() {
           </div>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Boost your productivity.
+              Empower your learning
               <br />
-              Start using our app today.
+              Start using scholarly today.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
-              Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur
-              commodo do ea.
+              We believe in accessible research now for anybody anywhere 
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
