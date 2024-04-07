@@ -6,7 +6,7 @@ import { Class, ClassInterface, ClassPreview } from '../../models/Class'
 
 export const sendClass = async (req: Request, res: Response) => { 
     try {
-        const classData = await Class.findById(req.body.class)
+        const classData = await Class.findById(req.body.params.class)
         const membersData = await User.find({
             "_id": {
                 $in: classData!.members
