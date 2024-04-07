@@ -1,4 +1,4 @@
-export default function Class({ class: classroom }) { 
+export default function ClassCard({ class: classroom }) { 
     return (
         <a href={classroom.href} className="flex p-12 border-2 border-red-800 rounded-md min-h-64 transition-transform duration-300 transform hover:scale-105 rounded-xl shadow-md shadow-red-800">
             <div className="flex-cols content-center align-middle justify-center">
