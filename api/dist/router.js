@@ -11,8 +11,12 @@ exports.router = router;
 const logout_1 = require("./routes/auth/logout");
 const login_1 = require("./routes/auth/login");
 const register_1 = require("./routes/auth/register");
+const createArticle_1 = require("./routes/articles/createArticle");
 //* ROUTES
 // POST
+//auth
 router.post('/logout', logout_1.logout);
 router.post('/login', login_1.login);
 router.post('/register', register_1.register);
+//articles
+router.post('/createArticle', createArticle_1.createArticle);
