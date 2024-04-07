@@ -10,4 +10,4 @@ var Category;
     Category["Government"] = "Government";
     Category["Education"] = "Education";
     Category["Humanities"] = "Humanities";
-})(Category = exports.Category || (exports.Category = {}));
+})(Category || (exports.Category = Category = {}));
