@@ -22,7 +22,19 @@ export default function Dashboard({students, setrerender, infolder, setinfolder,
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
-  const handleAddFolder = (colorData) => {
+  const handleAddFolder = async(folder) => {
+   await fetch('http://localhost:4000/folder/create', {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        color: folder.color,
+        mutable: true,
+        name: folder.name
+       })
+    })
     
   };
 
