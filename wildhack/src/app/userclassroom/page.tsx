@@ -20,7 +20,7 @@ export default function Classroom() {
         <Header></Header>
         <div className="flex flex-row  justify-between p-8">
           <h1 className="text-2xl font-bold">Welcome to Your Classes</h1>
-          <button onClick={handleOpenModal} className="text-sm font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Create New Classroom</button>
+          <button onClick={handleOpenModal} className="text-sm min-h-12 max-h-12 font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Create New Classroom</button>
         </div>
         <AddClassModal isOpen={isModalOpen} onClose={handleCloseModal} onAdd={handleAddClass} />
 
