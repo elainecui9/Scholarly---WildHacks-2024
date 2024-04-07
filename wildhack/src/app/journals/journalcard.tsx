@@ -9,7 +9,10 @@ function truncateText(text: string, maxLength: number): string {
 }
 
 export default function Journalcard(props: any) {
-  const truncatedAbstract = truncateText(props.abstract, 500); // Adjust 100 to your preferred max length
+  if (!props.abstract) {
+    return
+  }
+  const truncatedAbstract = truncateText(props.abstract, 400); // Adjust 100 to your preferred max length
   let path ="";
   const authors = props.author.map((author)=>(
     path+ author.name+ ", " 
@@ -18,7 +21,7 @@ export default function Journalcard(props: any) {
     <section className="p-6 border-2 border-red-900 rounded-lg flex flex-cols justify-between items-center shadow-md shadow-red-900 mb-2 gap-4">
       <div className="max-w-screen-lg">
         <h1 className="font-bold pb-2">{props.title}</h1>
-          <h1 className="italic pb-2">{authors}</h1>
+        <p className="italic pb-2">{authors}</p>
         <p>{truncatedAbstract}</p>
       </div>
       <div className="transition-transform duration-300 transform hover:scale-105">

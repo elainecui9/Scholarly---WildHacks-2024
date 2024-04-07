@@ -42,7 +42,6 @@ export default function JournalPage() {
     if (data.results?.length > 0) {
         setArticle(data.results[0]);
     }
-    console.log(data.results[0]);
   }
   useEffect(() => {
     search();
@@ -53,8 +52,13 @@ export default function JournalPage() {
   }
 
   const handleClick = async () => {
+      const authors = article!.bibjson.author.map((author: any)=>(
+        "" + author.name+ ", " 
+      ))
     const queryParameters = {
-        url: encodeURIComponent(article?.bibjson?.link[0]?.url),
+      name: encodeURIComponent(article!.bibjson.title),
+      authors: encodeURIComponent(authors),
+        url: encodeURIComponent(article!.bibjson?.link[0]?.url),
         complexity: encodeURIComponent(selectedcomplexity.title),
         mode: encodeURIComponent(selectedMode.title),
       };
