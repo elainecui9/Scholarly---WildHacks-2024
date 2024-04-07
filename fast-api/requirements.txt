@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-openai
 utils
 requests
 dotenv

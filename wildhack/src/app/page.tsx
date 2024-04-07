@@ -1,10 +1,12 @@
 "use client"
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
+import landingpage1 from "./landingpage1.jpg";
+import Image from "next/image";
 import {
-  ArrowPathIcon,
-  Bars3Icon,
-  CloudArrowUpIcon,
+  DocumentMagnifyingGlassIcon,
+  BookOpenIcon,
+  PencilIcon,
   FingerPrintIcon,
   LockClosedIcon,
   XMarkIcon,
@@ -21,28 +23,28 @@ const navigation = [
 ]
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Search for Journals',
     description:
       'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
+    icon: DocumentMagnifyingGlassIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'Save Summaries',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+      'Simply enter in a prompt and receive an easy to read summary of the article.',
     icon: LockClosedIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Create Classrooms',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-    icon: ArrowPathIcon,
+      'Collect article summaries that can be shared with students and other group members.',
+    icon: PencilIcon,
   },
   {
-    name: 'Advanced security',
+    name: 'Collect Articles',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    icon: FingerPrintIcon,
+      'Save summarized articles in your dashboard so you can reference later on.',
+    icon: BookOpenIcon,
   },
 ]
 const tiers = [
@@ -107,12 +109,19 @@ export default function Example() {
   return (
     <div className="bg-white">
       {/* Header */}
-
-
+      
       <main className="isolate">
         {/* Hero section */}
         <div className="relative pt-14">
-          {/* <div
+        <div className="absolute top-4 right-4">
+        <a
+          href="/signin"
+          className="rounded-md bg-red-900 px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900"
+        >
+          Sign In
+        </a>
+      </div>
+          <div
             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
             aria-hidden="true"
           >
@@ -123,15 +132,16 @@ export default function Example() {
                   'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
               }}
             />
-          </div> */}
+          </div>
           <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              
               <div className="mx-auto max-w-2xl text-center pb-24">
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  Understand Research Fast
+                  Accessible research now.
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Quickly understand academic journals for your own studying and research needs
+                  explore something new. consolidate your learning. personalised to your needs. 
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
@@ -176,13 +186,12 @@ export default function Example() {
         {/* Feature section */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-bg-red-900">Deploy faster</h2>
+            <h2 className="text-base font-semibold leading-7 text-bg-red-900">Research Faster</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Everything you need to deploy your app
+              Everything you need to learn
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-              pulvinar et feugiat blandit at. In mi viverra elit nunc.
+              Our customizeable comprehension tools provide accessible resources for students to explore their passions and hone learning in class and beyond
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -205,21 +214,11 @@ export default function Example() {
         {/* Testimonial section */}
         <div className="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden bg-gray-900 px-6 py-20 shadow-xl sm:rounded-3xl sm:px-10 sm:py-24 md:px-12 lg:px-20">
-            <img
-              className="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
-              src="https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
+            <Image
+              className="absolute inset-0 h-full w-full object-cover "
+              src={landingpage1}
               alt=""
             />
-            <div className="absolute inset-0 bg-gray-900/90 mix-blend-multiply" />
-            <div className="absolute -left-80 -top-56 transform-gpu blur-3xl" aria-hidden="true">
-              <div
-                className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#a00010] to-[#fff6ce] opacity-[0.45]"
-                style={{
-                  clipPath:
-                    'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                }}
-              />
-            </div>
             <div
               className="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:transform-gpu md:blur-3xl"
               aria-hidden="true"
@@ -233,7 +232,6 @@ export default function Example() {
               />
             </div>
             <div className="relative mx-auto max-w-2xl lg:mx-0">
-              <img className="h-12 w-auto" src="https://tailwindui.com/img/logos/workcation-logo-white.svg" alt="" />
               <figure>
                 <blockquote className="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                   <p>
