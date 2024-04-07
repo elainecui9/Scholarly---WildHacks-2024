@@ -16,7 +16,7 @@ const Folder_1 = require("../../models/Folder");
 const Class_1 = require("../../models/Class");
 const sendClass = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const classData = yield Class_1.Class.findById(req.body.payload);
+        const classData = yield Class_1.Class.findById(req.body.class);
         const membersData = yield User_1.User.find({
             "_id": {
                 $in: classData.members
