@@ -14,5 +14,5 @@ const register_1 = require("./routes/auth/register");
 //* ROUTES
 // POST
 router.post('/logout', logout_1.logout);
-router.post('login', login_1.login);
+router.post('/login', login_1.login);
 router.post('/register', register_1.register);
