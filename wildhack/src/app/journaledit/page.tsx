@@ -51,11 +51,11 @@ export default function JournalPage() {
   if (!article) {
     return <Loading></Loading>; // or any other loading state
   }
-
+  const authors = article!.bibjson.author.map((author: any)=>(
+    "" + author.name+ ", " 
+  ))
   const handleClick = async () => {
-      const authors = article!.bibjson.author.map((author: any)=>(
-        "" + author.name+ ", " 
-      ))
+      
     const queryParameters = {
       name: encodeURIComponent(article!.bibjson.title),
       authors: encodeURIComponent(authors),
@@ -70,19 +70,19 @@ export default function JournalPage() {
   }
   return (
     
-    <section className= "h-screen bg-white">
+    <section className= "h-full bg-white">
         <div>
             <Header></Header>
         </div>
         <div>
        <section className='flex flex-row items-center justify-between pt-24 '>
-    <div className='pl-32'>
+    <div className='pl-32 '>
         <Back backpage='/journals'></Back>
-        <h1 className="font-bold text-3xl pb-2">{article.bibjson.name}</h1>
-        <h1 className="italic text-lg pb-8">{article.bibjson.name}</h1>
+        <h1 className="font-bold text-3xl pb-2">{article!.bibjson.title}</h1>
+        <h1 className="italic text-lg pb-8">{authors}</h1>
         <h1>{article.bibjson.abstract}</h1>
     </div>
-    <div className='flex flex-col items-center pr-64'>
+    <div className='flex flex-col items-center pl-24 pr-32'>
     <h1 className='font-semibold'>Select Complexity:</h1>
     <Listbox value={selectedcomplexity} onChange={setSelectedcomplexity}>
       {({ open }) => (
