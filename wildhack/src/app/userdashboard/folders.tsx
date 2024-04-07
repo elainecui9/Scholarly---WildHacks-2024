@@ -7,7 +7,7 @@ import Articles from "./articles";
 export default function Folders({folders, articles, setarticles, setfolders, setPath, path, setinfolder}){
 
     return (
-        <h1 className="divide-y divide-gray-100 p-8 border-2 rounded-lg">
+        <h1 className="divide-y divide-gray-100 p-8 border-2 rounded-lg ">
         {folders != null &&
         folders.map((folder,index) => (
             <Drive setinfolder = {setinfolder} path = {path} setPath = {setPath} key={index} folder = {folder} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Drive>
