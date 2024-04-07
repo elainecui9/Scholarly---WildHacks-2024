@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 import Back from "../components/back";
 import Link from "next/link";
 import Loading from "../components/loadingpage";
+import { motion } from "framer-motion";
 
 
 
@@ -78,9 +79,18 @@ export default function JournalPage() {
        <section className='flex flex-row items-center justify-between pt-24 '>
     <div className='pl-32 '>
         <Back backpage='/journals'></Back>
+        
+        <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
         <h1 className="font-bold text-3xl pb-2">{article!.bibjson.title}</h1>
         <h1 className="italic text-lg pb-8">{authors}</h1>
         <h1>{article.bibjson.abstract}</h1>
+        </motion.div>
+        
+        
     </div>
     <div className='flex flex-col items-center pl-24 pr-32'>
     <h1 className='font-semibold'>Select Complexity:</h1>

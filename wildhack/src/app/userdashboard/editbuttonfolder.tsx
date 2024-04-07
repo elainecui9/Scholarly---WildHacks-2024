@@ -32,7 +32,7 @@ export default function Example(props: any) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        color: colorData,
+        color: colorData.color,
         folder: props.id
        })
     })

@@ -3,6 +3,8 @@ import Back from "../components/back";
 import {useState, useEffect} from "react";
 import {useRouter} from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import { motion } from "framer-motion"
+
 
 
 export default function Journal() {
@@ -45,7 +47,13 @@ export default function Journal() {
             <div >
           <h1 className="font-bold text-3xl pb-2">{name}</h1>
           <h1 className="italic text-lg pb-8">{authors}</h1>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
                 <p className="whitespace-pre-line">{article.article_summary}</p>
+                </motion.div>
             </div>
             <div>
                 <button className="text-white bg-black rounded-full px-4 py-2">

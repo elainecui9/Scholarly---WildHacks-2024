@@ -20,7 +20,7 @@ export default function Example() {
     const handleOpenChangeLocationModal = () => setisChangeLocationOpen(true);
   const handleCloseChangeLocationModal = () => setisChangeLocationOpen(false);
   const handleChangeLoction = () => {
-    console.log("Adding a new folder...");
+    
   };
   const [selectedAction, setSelectedAction] = useState('');
 
