@@ -7,7 +7,7 @@ const navigation = [
   { name: 'Home', href: '/frontpage' },
   { name: 'My Dashboard', href: '/userdashboard' },
   { name: 'My Classroom', href: '/userclassroom' },
-  { name: 'Profile', href: '/userprofile' },
+
 ]
 
 function Header() {
