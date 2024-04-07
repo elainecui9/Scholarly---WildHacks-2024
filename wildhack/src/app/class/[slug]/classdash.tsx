@@ -23,7 +23,7 @@ export default function Dashboard({students, setrerender, infolder, setinfolder,
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
   const handleAddFolder = (colorData) => {
-    
+
   };
 
   return (
