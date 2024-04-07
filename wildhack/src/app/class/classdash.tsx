@@ -37,6 +37,7 @@ export default function Dashboard({students, setrerender, infolder, setinfolder,
               <Back backpage="/class"></Back>
               </div>}
           </div>
+          
           <button onClick={handleOpenModal} className="text-sm max-h-12 font-semibold py-2 px-4 rounded-full bg-red-900 text-white">Create New Folder</button>
         </div>
         <AddFolderModal isOpen={isModalOpen} onClose={handleCloseModal} onAdd={handleAddFolder} />
