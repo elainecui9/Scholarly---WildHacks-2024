@@ -6,7 +6,7 @@ import Back from "../components/back";
 import AddFolderModal from '../components/AddFolderModal';
 
 
-export default function Dashboard({setrerender, infolder, setinfolder, name, articles, setarticles, folders, setfolders, path, setPath}) {
+export default function Dashboard({setrerender, infolder, setinfolder, articles, setarticles, folders, setfolders, path, setPath}) {
   const handleClick = () => {
     setrerender(true);
   };
@@ -22,7 +22,7 @@ export default function Dashboard({setrerender, infolder, setinfolder, name, art
     <section className= "bg-white h-full">
         <div className="flex flex-row justify-between p-8">
           <div className="flex flex-col">
-            <h1 className="text-2xl font-bold">Welcome to {name}'s Dashboard</h1>
+            <h1 className="text-2xl font-bold">Dashboard</h1>
             <h1 className="pt-2">{path}</h1>
             {infolder &&
             <div onClick={handleClick}>

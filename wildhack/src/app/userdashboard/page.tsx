@@ -147,7 +147,7 @@ const [rerender, setrerender] = useState<boolean>(false);
   return (
     <section className="bg-white">
       <Header></Header>
-      <Dashboard name="Chris" setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
+      <Dashboard setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
       <Footer></Footer>
     </section>
     

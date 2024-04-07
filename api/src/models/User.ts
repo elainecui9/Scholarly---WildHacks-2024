@@ -36,7 +36,8 @@ const userSchema = new Schema({
     lastName: {type: String, trim: true, required: true},
     email: { type: String, required: true},
     password: { type: String, required: true},
-    folders: {type: Array, default: []},
+    folders: { type: Array, default: [] },
+    classes: { type: Array, default: [] },
     articles: {type: Array, default: []}
 })
 

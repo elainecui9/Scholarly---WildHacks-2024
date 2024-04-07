@@ -33,7 +33,7 @@ const createClass = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         });
         yield newClass.save();
         yield User_1.User.findByIdAndUpdate(req.body.payload._id, { $push: { classes: newClass._id } });
-        res.status(200).send("Folder successfully created");
+        res.status(200).json(`Your access code is ${code}`);
     }
     catch (error) {
         res.status(400).send(error);
