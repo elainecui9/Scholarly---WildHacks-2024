@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express'
+import { Request, Response } from 'express'
 import { Article } from '../../models/Article'
 import { Folder } from '../../models/Folder'
 import { User } from '../../models/User'
@@ -9,7 +9,7 @@ import { Class } from '../../models/Class'
 // save to class->folder
 // save to folder
 
-export const saveArticle = async (req: Request, res: Response, next: NextFunction) => {
+export const saveArticle = async (req: Request, res: Response) => {
     try {
         const article = new Article({
             title: req.body.title,

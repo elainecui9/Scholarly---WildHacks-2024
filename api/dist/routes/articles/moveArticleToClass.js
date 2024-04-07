@@ -9,26 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createArticle = void 0;
-const Article_1 = require("../../models/Article");
-//save to dashboard
-//save to class
-// save to class->folder
-// save to folder
-const createArticle = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.moveArticleToClass = void 0;
+const Class_1 = require("../../models/Class");
+const moveArticleToClass = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const article = new Article_1.Article({
-            title: req.body.title,
-            content: req.body.content,
-            url: req.body.url,
-            authors: req.body.authors,
-            date: Date.now(),
-            category: req.body.category
-        });
-        yield article.save();
+        yield Class_1.Class.findByIdAndUpdate(req.body.class, { $push: { articles: req.body.article } });
+        res.status(200).send("Successfully moved article");
     }
     catch (error) {
         res.status(400).send(error);
     }
 });
-exports.createArticle = createArticle;
+exports.moveArticleToClass = moveArticleToClass;

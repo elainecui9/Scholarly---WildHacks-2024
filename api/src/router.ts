@@ -10,6 +10,9 @@ import { saveArticle } from './routes/articles/saveArticle'
 
 //* ROUTES
 
+// GET
+router.get('')
+
 // POST
 
 //auth
