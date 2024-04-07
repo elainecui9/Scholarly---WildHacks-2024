@@ -7,7 +7,7 @@ export default function ClassCard({ class: classroom }) {
       day: 'numeric'
     });
     const handleClick = () => {
-        router.push("/class");
+        router.push(`/class?${classroom._id}`);
       };
   
     return (

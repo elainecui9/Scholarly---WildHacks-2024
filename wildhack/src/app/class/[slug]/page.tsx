@@ -25,7 +25,6 @@ const [folders, setfolders] = useState<
   }];
 }[]
 >([]);
-
 const [path, setPath] = useState<string>("Home > ");
 const [infolder, setinfolder] = useState<boolean>(false);
 const [rerender, setrerender] = useState<boolean>(false);
@@ -45,9 +44,7 @@ async function getData(){
 }
 
 useEffect(() => {
-
     getData();
-
   setrerender(false);
   setinfolder(false);
   setPath("Home > ");
@@ -59,7 +56,7 @@ useEffect(() => {
   return (
     <section className="bg-white">
       <Header></Header>
-    <Dashboard students = {students} name="Chris" setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
+    <Dashboard students = {students} name="" setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
 
       <Footer></Footer>
     </section>
