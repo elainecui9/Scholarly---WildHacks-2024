@@ -2,6 +2,7 @@
 import { MdArticle } from "react-icons/md";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Editbuttonarticle from "./editbuttonarticle";
+import Link from "next/link";
 
 export default function Articles({article, key})
 {
@@ -11,9 +12,9 @@ export default function Articles({article, key})
         <div className="flex gap-x-4 items-center">
             <MdArticle style={{ color: 'black', width: '32px', height: '32px' }} />
             <p className="text-md font-semibold leading-6 text-gray-900">
-                <a href={article.href}>
+                <Link href={`/articles/${article._id}`}>
                     {article.title}
-                </a>
+                </Link>
             </p>
         </div>
         <div className="flex-grow text-center">

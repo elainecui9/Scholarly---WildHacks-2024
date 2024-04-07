@@ -13,7 +13,7 @@ exports.moveArticleToFolder = void 0;
 const Folder_1 = require("../../models/Folder");
 const moveArticleToFolder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield Folder_1.Folder.findByIdAndUpdate(req.body.class, { $push: { articles: req.body.article } });
+        yield Folder_1.Folder.findByIdAndUpdate(req.body.folder, { $push: { articles: req.body.article } });
         res.status(200).send("Successfully moved article");
     }
     catch (error) {
