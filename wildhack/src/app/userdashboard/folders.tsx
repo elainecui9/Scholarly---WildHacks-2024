@@ -4,20 +4,15 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Drive from "./drive";
 import Articles from "./articles";
 
-export default function Folders({folders, articles, setarticles, setfolders, setPath, path, setinfolder}){
-
+export default function Folders(props:{folders, articles, setarticles}){
     return (
-        <h1 className="divide-y divide-gray-100 p-8 border-2 rounded-lg">
-        {folders != null &&
-        folders.map((folder,index) => (
-            <Drive setinfolder = {setinfolder} path = {path} setPath = {setPath} key={index} folder = {folder} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Drive>
-        ))
-        }   
-        {articles != null &&
-        articles.map((article,index) => (
-            <Articles key={index} article = {article} ></Articles>
-        ))
-        }
-    </h1>
+        <ul role="list" key ="" className="divide-y divide-gray-100 p-8 border-2 rounded-lg">
+        {props.folders.map((folder) => (
+            <Drive folder = {folder} setarticles = {props.setarticles} articles = {props.articles}></Drive>
+        ))}
+        {props.articles.map((article) => (
+            <Articles article = {article} ></Articles>
+        ))}
+    </ul>
     )
 }

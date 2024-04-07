@@ -17,14 +17,12 @@ import { editFolder } from './routes/folders/editFolder'
 import { createFolder } from './routes/folders/createFolder'
 import { createClass } from './routes/classes/createClass'
 import { editClass } from './routes/classes/editClass'
-import { requiresAuth } from './routes/auth/requiresAuth'
-import { validateToken } from './routes/auth/validateToken'
 
 
 //* ROUTES
 
 //* GET
-router.get('/validateToken', requiresAuth, validateToken)
+router.get('')
 
 //* POST
 
@@ -34,25 +32,25 @@ router.post('/login', login)
 router.post('/register', register)
 
 //articles
-router.post('/article/save', requiresAuth, saveArticle)
-router.post('/article/edit', requiresAuth, editArticle)
+router.post('/article/save', saveArticle)
+router.post('/article/edit', editArticle)
 
 //folders
-router.post('/folder/create', requiresAuth, createFolder)
-router.post('/folder/edit', requiresAuth, editFolder)
+router.post('/folder/create', createFolder)
+router.post('/folder/edit', editFolder)
 
 //classes
-router.post('/classes/create', requiresAuth, createClass)
-router.post('/classes/edit', requiresAuth, editClass)
+router.post('/classes/create', createClass)
+router.post('/classes/edit', editClass)
 
 //* PATCH
-router.patch('/article/move/folder', requiresAuth, moveArticleToFolder)
-router.patch('/article/move/class', requiresAuth, moveArticleToClass)
-router.patch('/folder/move/class', requiresAuth, moveFolderToClass)
+router.patch('/article/move/folder', moveArticleToFolder)
+router.patch('/article/move/class', moveArticleToClass)
+router.patch('/folder/move/class', moveFolderToClass)
 
 //* DELETE
-router.delete('/article/remove', requiresAuth, removeArticle)
-router.delete('/folder/remove', requiresAuth, removeFolder)
-router.delete('/class/remove', requiresAuth, removeClass)
+router.delete('/article/remove', removeArticle)
+router.delete('/folder/remove', removeFolder)
+router.delete('/class/remove', removeClass)
 
 export {router}
