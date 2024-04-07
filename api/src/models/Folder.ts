@@ -1,12 +1,20 @@
 import mongoose, { Schema } from 'mongoose'
+import { ArticlePreview } from './Article'
 
-export interface Folder {
+export interface FolderPreview {
     _id: mongoose.Types.ObjectId,
-    owner: mongoose.Types.ObjectId,
     name: string,
     color: string,
-    articles: mongoose.Types.ObjectId[],
     date: Date
+}
+
+export interface FolderInterface extends FolderPreview {
+    articles: ArticlePreview[]
+}
+
+export interface Folder extends FolderPreview {
+    owner: mongoose.Types.ObjectId,
+    articles: mongoose.Types.ObjectId[],
 }
 
 const folderSchema = new Schema({

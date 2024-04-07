@@ -25,7 +25,7 @@ export const createClass = async (req: Request, res: Response) => {
         })
         await newClass.save()
         await User.findByIdAndUpdate(req.body.payload._id, {$push: {classes: newClass._id}})
-        res.status(200).send("Folder successfully created")
+        res.status(200).json(`Your access code is ${code}`)
     } catch (error) {
         res.status(400).send(error)
         

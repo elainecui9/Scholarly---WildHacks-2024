@@ -1,34 +1,42 @@
 "use client"
 import { FaFolder } from "react-icons/fa";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import Editbutton from "./editbutton";
+import Editbuttonfolder from "./editbuttonfolder";
+import {useEffect} from "react";
 
-export default function Drives(props:{folder, articles}, setarticles)
-{
+export default function Drives({ folder, articles, setarticles, setfolders, key, path, setPath, setinfolder }) {
+    // Format the date
+    const formattedDate = new Date(folder.date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
     const handleClick = () => {
-        setarticles(props.folder.articles)
-        console.log(props.articles)
-      };
+        setarticles(folder.articles);
+        setfolders(null);
+        setPath(path + folder.name + " > ");
+        setinfolder(true);
+        console.log(articles);
+    };
+
     return (
-            <li key={props.folder.name} onClick ={handleClick} className="relative flex justify-between gap-x-6 py-5">
-            <div className="flex min-w-0 gap-x-4">
-                <FaFolder style={{ color: 'black' , width: '32px', height: '32px'}} />
-                <div className="min-w-0 flex-auto">
+        <section className="flex justify-between items-center gap-x-6 py-5">
+            <div className="flex gap-x-4 items-center hover:cursor-pointer" onClick={handleClick}>
+                <FaFolder style={{ color: folder.color, width: '32px', height: '32px' }} />
                 <p className="text-md font-semibold leading-6 text-gray-900">
-                    <a href={props.folder.href}>
-                    <span className="absolute inset-x-0 -top-px bottom-0" />
-                    {props.folder.name}
-                    </a>
+                    {folder.name}
                 </p>
-                </div>
             </div>
-            <div>
-                <h1 className="text-sm text-gray-500">{props.folder.datecreated}</h1>
-            </div> 
-            <div className="flex shrink-0 items-center gap-x-4 " >
-                <Editbutton></Editbutton>
+            <div className="flex-grow text-center">
+                <h1 className="text-sm text-gray-500">{formattedDate}</h1>
+            </div>
+            <div className="flex items-center gap-x-4">
+                <Editbuttonfolder
+                    id={folder._id}
+                ></Editbuttonfolder>
                 <ChevronRightIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
             </div>
-            </li>
-    )
+        </section>
+    );
 }

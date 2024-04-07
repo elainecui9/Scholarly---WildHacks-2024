@@ -1,30 +1,7 @@
+import logo from "./Logo .png";
+import Image from "next/image";
 export default function Footer(){
-    const footerNavigation = {
-        solutions: [
-          { name: 'Hosting', href: '#' },
-          { name: 'Data Services', href: '#' },
-          { name: 'Uptime Monitoring', href: '#' },
-          { name: 'Enterprise Services', href: '#' },
-        ],
-        support: [
-          { name: 'Pricing', href: '#' },
-          { name: 'Documentation', href: '#' },
-          { name: 'Guides', href: '#' },
-          { name: 'API Reference', href: '#' },
-        ],
-        company: [
-          { name: 'About', href: '#' },
-          { name: 'Blog', href: '#' },
-          { name: 'Jobs', href: '#' },
-          { name: 'Press', href: '#' },
-          { name: 'Partners', href: '#' },
-        ],
-        legal: [
-          { name: 'Claim', href: '#' },
-          { name: 'Privacy', href: '#' },
-          { name: 'Terms', href: '#' },
-        ],
-      }
+
     return (
     <div className="mx-auto mt-32 max-w-7xl px-6 lg:px-8">
         <footer
@@ -35,65 +12,13 @@ export default function Footer(){
             Footer
           </h2>
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <img
-              className="h-7"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            <Image
+              className="w-48"
+              src={logo}
               alt="Company name"
             />
-            <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-sm font-semibold leading-6 text-gray-900">Solutions</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {footerNavigation.solutions.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-10 md:mt-0">
-                  <h3 className="text-sm font-semibold leading-6 text-gray-900">Support</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {footerNavigation.support.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-sm font-semibold leading-6 text-gray-900">Company</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {footerNavigation.company.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-10 md:mt-0">
-                  <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {footerNavigation.legal.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
+
+            <h1>Coded By: Chris Heo, Hajo Wolfram, and Elaine Cui</h1>
           </div>
         </footer>
       </div>

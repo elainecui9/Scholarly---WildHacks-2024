@@ -5,79 +5,60 @@ import Folders from "./folders";
 import Dashboard from "./dashboard";
 import {useState, useEffect} from "react";
 
-
-const folders = [
-  {
-    name: 'Biology',
-    datecreated: '2023-01-23',
-    href:"/userdashboard",
-    articles: [{
-        name: 'Hi',
-        datecreated: '2023-01-23',
-        href:"#",
-      },
-      {
-        name: 'Hi1',
-        datecreated: '2023-01-23',
-        href:"#",
-      },
-      {
-        name: 'Hi2',
-        datecreated: '2023-01-23',
-        href:"#",
-      }
-    ]
-  },
-  {
-    name: 'Humanities',
-    datecreated: '2023-01-23',
-    href:"#",
-  },
-  {
-    name: 'CS 150',
-    datecreated: '2023-01-23',
-    href:"#",
-  },
- 
-
-]
-
-
-const art = [
-    {
-      name: 'What is life',
-      datecreated: '2023-01-23',
-      href:"#",
-    },
-    {
-      name: 'Psychology of CS',
-      datecreated: '2023-01-23',
-      href:"#",
-    },
-    {
-      name: 'Does water expire',
-      datecreated: '2023-01-23',
-      href:"#",
-    },
-   
-  
-  ]
 export default function UserDashboard() {
   const [articles, setarticles] = useState<
 {
-  name: string,
-  datecreated: string,
+  title: string,
+  date: string,
   href:string,
 }[]
 >([]);
-useEffect(() => {
-  setarticles(art);
-}, [articles]);
+const [folders, setfolders] = useState<
+{
+  name: string,
+  date: string,
+  href:string,
+  articles: [{
+    title: string,
+    datecreated: string,
+    href:string,
+  }];
+}[]
+  >([]);
+  
+  async function getData() {
+    const res = await fetch("http://localhost:4000/user/dashboard", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    const data = await res.json()
+    setarticles(data.articles);
+    setfolders(data.folders);
+  }
+
+const [path, setPath] = useState<string>("Home > ");
+const [infolder, setinfolder] = useState<boolean>(false);
+const [rerender, setrerender] = useState<boolean>(false);
+
+  useEffect(() => {
+    getData()
+  setrerender(false);
+  setinfolder(false);
+  setPath("Home > ");
+}, [rerender]);
 
 
 
   return (
-    <Dashboard name="Chris" folders = {folders} setarticles = {setarticles} articles = {articles}></Dashboard>
+    <section className="bg-white">
+      <Header></Header>
+      <Dashboard setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
+      <Footer></Footer>
+    </section>
+    
   )
 }
 

@@ -1,12 +1,27 @@
 import mongoose, { Schema } from 'mongoose'
+import { UserInterface } from './User'
+import { ArticlePreview } from './Article'
+import { FolderInterface } from './Folder'
 
-export interface Class {
+export interface ClassPreview {
     _id: mongoose.Types.ObjectId,
     owner: mongoose.Types.ObjectId,
-    mutable: boolean,
-    code: string,
     name: string,
     date: Date,
+}
+
+export interface ClassAttributes extends ClassPreview {
+    mutable: boolean,
+    code: string,
+}
+
+export interface ClassInterface extends ClassAttributes {
+    members: UserInterface[],
+    articles: ArticlePreview[]
+    folders: FolderInterface[]
+}
+
+export interface Class extends ClassAttributes {
     members: mongoose.Types.ObjectId[],
     articles: mongoose.Types.ObjectId[],
     folders: mongoose.Types.ObjectId[],

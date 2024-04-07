@@ -29,9 +29,7 @@ const articleSchema = new mongoose_1.Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },
     url: { type: String, required: true },
-    authors: { type: Array, required: true },
+    authors: { type: String, required: true },
     date: { type: Date, required: true },
-    category: { type: String, required: true },
-    // folder: {type: String, required: true},
 });
 exports.Article = mongoose_1.default.model('Article', articleSchema);

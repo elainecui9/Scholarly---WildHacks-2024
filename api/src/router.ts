@@ -17,12 +17,22 @@ import { editFolder } from './routes/folders/editFolder'
 import { createFolder } from './routes/folders/createFolder'
 import { createClass } from './routes/classes/createClass'
 import { editClass } from './routes/classes/editClass'
+import { requiresAuth } from './routes/auth/requiresAuth'
+import { validateToken } from './routes/auth/validateToken'
+import { sendDashboard } from './routes/user/sendDashboard'
+import { sendClasses } from './routes/user/sendClasses'
+import { sendClass } from './routes/classes/sendClass'
+import { findArticle } from './routes/articles/findArticle'
 
 
 //* ROUTES
 
 //* GET
-router.get('')
+router.get('/validateToken', requiresAuth, validateToken)
+router.get('/user/dashboard', requiresAuth, sendDashboard)
+router.get('/user/classes', requiresAuth, sendClasses)
+router.get("/class/:q", requiresAuth, sendClass)
+router.get('/article/:article', findArticle)
 
 //* POST
 
@@ -32,25 +42,25 @@ router.post('/login', login)
 router.post('/register', register)
 
 //articles
-router.post('/article/save', saveArticle)
-router.post('/article/edit', editArticle)
+router.post('/article/save', requiresAuth, saveArticle)
+router.post('/article/edit', requiresAuth, editArticle)
 
 //folders
-router.post('/folder/create', createFolder)
-router.post('/folder/edit', editFolder)
+router.post('/folder/create', requiresAuth, createFolder)
+router.post('/folder/edit', requiresAuth, editFolder)
 
 //classes
-router.post('/classes/create', createClass)
-router.post('/classes/edit', editClass)
+router.post('/classes/create', requiresAuth, createClass)
+router.post('/classes/edit', requiresAuth, editClass)
 
 //* PATCH
-router.patch('/article/move/folder', moveArticleToFolder)
-router.patch('/article/move/class', moveArticleToClass)
-router.patch('/folder/move/class', moveFolderToClass)
+router.patch('/article/move/folder', requiresAuth, moveArticleToFolder)
+router.patch('/article/move/class', requiresAuth, moveArticleToClass)
+router.patch('/folder/move/class', requiresAuth, moveFolderToClass)
 
 //* DELETE
-router.delete('/article/remove', removeArticle)
-router.delete('/folder/remove', removeFolder)
-router.delete('/class/remove', removeClass)
+router.delete('/article/remove', requiresAuth, removeArticle)
+router.delete('/folder/remove', requiresAuth, removeFolder)
+router.delete('/class/remove', requiresAuth, removeClass)
 
 export {router}

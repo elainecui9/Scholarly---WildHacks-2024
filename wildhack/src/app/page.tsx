@@ -2,7 +2,10 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import landingpage1 from "./landingpage1.jpg";
+import main_img from "./main_img.jpg";
 import Image from "next/image";
+import lab_img from "./lab_img.png"
+
 import {
   DocumentMagnifyingGlassIcon,
   BookOpenIcon,
@@ -157,8 +160,8 @@ export default function Example() {
               </div>
               <div className="mt-16 flow-root sm:mt-24">
                 <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-                  <img
-                    src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
+                  <Image
+                    src={lab_img}
                     alt="App screenshot"
                     width={2432}
                     height={1442}
@@ -236,7 +239,7 @@ export default function Example() {
                 <blockquote className="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                   <p>
                     “Scholarly is great, I use it on a daily basis to prepare for class readings and exams.
-                    My daughter also enjoys reading about new technology and innovation in the weekly newsletters.”
+                    My sister also enjoys reading about new technology and innovation in the weekly newsletters.”
                   </p>
                 </blockquote>
                 <figcaption className="mt-6 text-base text-white">
