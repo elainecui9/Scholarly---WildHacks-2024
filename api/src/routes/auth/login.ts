@@ -16,9 +16,11 @@ export const login = async (req: Request, res: Response) => {
         const payload: UserToken = {
             _id: existingUser!._id,
         }
-        const userToken = jwt.sign(payload, process.env.PRIVATEKEY as string)
-        if(req.cookies['auth-token']) {res.clearCookie('auth-token')}
-        res.cookie('auth-token', userToken, {
+        const token = jwt.sign(payload, process.env.PRIVATEKEY as string)
+        if (req.cookies['auth-token']) {
+            res.clearCookie('auth-token')
+        }
+        res.cookie('auth-token', token, {
             //lasts 2 weeks
             expires: new Date(new Date().getTime() + 60 * 60 * 24 * 7 * 1000 * 2),
             secure: true,

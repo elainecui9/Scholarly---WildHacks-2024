@@ -1,5 +1,27 @@
-import Link from "next/link";
+"use client"
+import { useRouter } from "next/navigation"
+
 export default function Signin() {
+  const router = useRouter();
+  async function login(formData: any) {
+    const body = {
+      email: formData.get("email"),
+      password: formData.get("password")
+    }
+    const res = await fetch("http://localhost:4000/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+  
+    if (res.status === 200) {
+      router.push('/userdashboard')
+    }
+
+  }
     return (
       <>
         <div className="flex h-screen bg-white min-h-full flex-1">
@@ -24,7 +46,7 @@ export default function Signin() {
   
               <div className="mt-10">
                 <div>
-                  <form action="#" method="POST" className="space-y-6">
+                  <form action={login} method="POST" className="space-y-6">
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
@@ -78,12 +100,12 @@ export default function Signin() {
                     </div>
   
                     <div>
-                      <Link
-                        href="/frontpage"
+                      <button
+                        type="submit"
                         className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                       >
                         Sign in
-                      </Link>
+                      </button>
                     </div>
                   </form>
                 </div>

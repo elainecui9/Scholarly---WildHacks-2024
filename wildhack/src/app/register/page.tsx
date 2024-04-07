@@ -1,5 +1,28 @@
+"use client"
 import Link from "next/link";
-export default function Register() {
+import { useRouter } from "next/navigation"
+
+export default async function Register() {
+  const router = useRouter()
+  async function register(formData: any) {
+    const body = {
+      firstName: formData.get("firstname"),
+      lastName: formData.get("lastname"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    }
+    const res = await fetch("http://localhost:4000/register", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+    if (res.status === 200) {
+      router.push('/userdashboard')
+    }
+  }
     return (
       <>
         {/*
@@ -23,8 +46,7 @@ export default function Register() {
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
-              
+            <form action={register} className="space-y-6" method="POST">
               <div>
                 <div className="flex items-center justify-between">
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-black">
@@ -90,12 +112,12 @@ export default function Register() {
                 </div>
               </div>
               <div>
-                <Link
-                  href="/frontpage"
+                <button
+                  type="submit"
                   className="flex w-full justify-center rounded-md bg-red-900 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900"
                 >
                   Register
-                </Link>
+                </button>
                 <Link href="/signin" className="text-xs">
                   Already have an account?
                 </Link>
