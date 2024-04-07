@@ -19,7 +19,6 @@ const articleSchema = new Schema({
     authors: {type: Array, required: true},
     date: {type: Date, required: true},
     category: {type: String, required: true},
-    // folder: {type: String, required: true},
 })
 
 export const Article = mongoose.model<Article>('Article', articleSchema)

@@ -1,19 +1,31 @@
 "use client"
 import Link from "next/link";
-export default function Journalcard() {
 
+function truncateText(text: string, maxLength: number): string {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength) + "...";
+  }
+  return text;
+}
+
+export default function Journalcard(props: any) {
+  const truncatedAbstract = truncateText(props.abstract, 500); // Adjust 100 to your preferred max length
+  let path ="";
+  const authors = props.author.map((author)=>(
+    path+ author.name+ ", " 
+  ))
   return (
-    <section className="p-6 border-2 border-red-900 rounded-lg flex flex-cols justify-between items-center shadow-md shadow-red-900 mb-2">
-        <div>
-            <h1 className="font-bold">JOURNAL TITLE</h1>
-            <h1 className="italic">Journal Author</h1>
-            <h1>Journal Abstract......</h1>
-        </div>
-        <div className=" transition-transform duration-300 transform hover:scale-105 ">
-            <Link href="/journalpage"className="text-white bg-red-900 rounded-full px-4 py-2 font-semibold rounded-xl shadow-md shadow-gray-600">
-                Generate Text
-            </Link>
-        </div>
+    <section className="p-6 border-2 border-red-900 rounded-lg flex flex-cols justify-between items-center shadow-md shadow-red-900 mb-2 gap-4">
+      <div className="max-w-screen-lg">
+        <h1 className="font-bold pb-2">{props.title}</h1>
+          <h1 className="italic pb-2">{authors}</h1>
+        <p>{truncatedAbstract}</p>
+      </div>
+      <div className="transition-transform duration-300 transform hover:scale-105">
+        <Link href={`/journaledit?id=${props.id}`} className="inline-block text-white bg-red-900 rounded-full  px-4 py-2 font-semibold rounded-xl shadow-md shadow-gray-600">
+            See More
+        </Link>
+      </div>
     </section>
-  )
+  );
 }

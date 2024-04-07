@@ -2,13 +2,13 @@
 import Header from "../frontpage/header";
 import Footer from "../footer";
 import Folders from "./folders";
-import Dashboard from "./dashboard";
+import Dashboard from "./classdash";
 import {useState, useEffect} from "react";
 
 
 const fold = [
   {
-    name: 'Biology',
+    name: 'CS',
     datecreated: '2023-01-23',
     href:"#",
     articles: [{
@@ -29,7 +29,7 @@ const fold = [
     ]
   },
   {
-    name: 'Humanities',
+    name: 'Social',
     datecreated: '2023-01-23',
     href:"#",
     articles: [{
@@ -91,9 +91,10 @@ const art = [
       href:"#",
     },
    
-  
   ]
-export default function UserDashboard() {
+  const students = ["David Wu", "Chirs Heo", "Elaine Cui", "John Adams"]
+
+export default function ClassDashboard() {
   const [articles, setarticles] = useState<
 {
   name: string,
@@ -132,7 +133,8 @@ useEffect(() => {
   return (
     <section className="bg-white">
       <Header></Header>
-      <Dashboard name="Chris" setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
+    <Dashboard students = {students} name="Chris" setrerender = {setrerender} infolder= {infolder} setinfolder = {setinfolder} path = {path} setPath = {setPath} folders = {folders} setfolders = {setfolders} setarticles = {setarticles} articles = {articles}></Dashboard>
+
       <Footer></Footer>
     </section>
     
