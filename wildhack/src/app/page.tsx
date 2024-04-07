@@ -236,7 +236,7 @@ export default function Example() {
                 <blockquote className="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                   <p>
                     “Scholarly is great, I use it on a daily basis to prepare for class readings and exams.
-                    My daughter also enjoys reading about new technology and innovation in the weekly newsletters.”
+                    My sister also enjoys reading about new technology and innovation in the weekly newsletters.”
                   </p>
                 </blockquote>
                 <figcaption className="mt-6 text-base text-white">
