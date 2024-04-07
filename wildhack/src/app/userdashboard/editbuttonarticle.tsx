@@ -1,12 +1,32 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react'
+import ChangeName from "../components/changeName";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Example() {
+    const [isModalOpen, setModalOpen] = useState(false);
+    const handleOpenNameModal = () => setModalOpen(true);
+  const handleCloseNameModal = () => setModalOpen(false);
+  const handleChangeName = () => {
+    console.log("Adding a new folder...");
+  };
+  const [selectedAction, setSelectedAction] = useState('');
+
+  // Handler to open the ChangeColor component with specific action
+  const handleAction = (action) => {
+    setSelectedAction(action);
+    if (action === 'Rename') {
+      handleOpenNameModal();
+    }else {
+      // Handle other actions here
+      console.log(`Action chosen: ${action}`);
+    }
+  };
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -35,11 +55,13 @@ export default function Example() {
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
+                  onClick={() => handleAction('Remove Article')}
                 >
-                  Remove Folder
+                  Remove Article
                 </a>
               )}
             </Menu.Item>
+        
         
             <Menu.Item>
               {({ active }) => (
@@ -49,19 +71,7 @@ export default function Example() {
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
-                >
-                  Change Color
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
+                  onClick={() => handleAction('Rename')}
                 >
                   Rename
                 </a>
@@ -71,6 +81,7 @@ export default function Example() {
           </div>
         </Menu.Items>
       </Transition>
+      <ChangeName isOpen={isModalOpen} onClose={handleCloseNameModal} onAdd={handleChangeName}/>
     </Menu>
   )
 }
